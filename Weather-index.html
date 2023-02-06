@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://em-content.zobj.net/source/skype/289/foggy_1f301.png" />
+    <title>offical weather application</title>
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    <!-- MDB -->
+    <link href="src/styling.css" rel="stylesheet" type="text/css" />
+    <!--Devolpers links-->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <!--My font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/64b60b5dda.js"
+      crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="body-outline-containment">
+        <!--search bar here-->
+        <div class="search input-group">
+          <div class="form-outline">
+            <input type="search" id="form1" class="form-control" />
+            <label class="form-label" for="form1">Enter City Name</label>
+          </div>
+          <button type="button" id="submit-form-button" class="btn btn-primary">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <!--search bar end-->
+
+        <!--premade city search-->
+        <div class="premade-city-serch size-search">
+          <div class="city-name-one">Tokyo</div>
+          <div class="line-breaker">|</div>
+          <div class="city-name-two">Melbourne</div>
+          <div class="line-breaker">|</div>
+          <div class="city-name-three">Honolulu</div>
+        </div>
+        <!--premade city search end-->
+
+        <!--main display pannel here-->
+        <div class="main-panel">
+          <h1 class="main-diplay-city" id="main-title-display-search-city">
+            Perth
+          </h1>
+          <div class="clock-calander">
+            <span id="theWeekDayDisplay">Monday</span> |
+            <span id="theTimeHourDisplay">11</span>:<span id="theTimeMinDisplay"
+              >03</span
+            >
+            <span id="the-am-pm">PM</span>
+          </div>
+          <div class="icon-weather">
+            <i class="fa-regular fa-sun icon-weather"></i>
+          </div>
+
+          <div class="side-panel">
+            <h2 class="main-temp-panel">
+              <span id="Main-display-temp">23</span>
+              <span class="Celeus"><a href="#" id="Celeus-link">°C</a> </span>
+              <span class="Celeus-farinhite">|</span>
+              <span class="farinhite"
+                ><a href="#" id="Farinhite-link">°F</a>
+              </span>
+              <!--onclick="yourFunction(); return false"-->
+              <!-- onclick="return false"-->
+            </h2>
+            <div class="the-precipition">
+              Humidity: <span id="the-main-precipition"> 50</span>%
+            </div>
+            <div class="the-wind">
+              Wind: <span id="the-main-wind-speed"> 5</span> km/h
+            </div>
+          </div>
+        </div>
+        <!--main display pannel end-->
+
+        <!--upcomming forcast here-->
+        <div class="forcast-bottom-panel">
+          <div class="row align-items-start">
+            <div class="size-for-one col-1">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">23C</h2>
+            </div>
+
+            <div class="col-2">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">23C</h2>
+            </div>
+
+            <div class="size-middle-coloum-adjust col-3">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">23C</h2>
+            </div>
+
+            <div class="col-1">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">23C</h2>
+            </div>
+
+            <div class="col-2">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">23C</h2>
+            </div>
+          </div>
+        </div>
+        <!--upcomming forecast end-->
+
+        <!-- MDB -->
+        <script type="text/javascript" src="js/mdb.min.js"></script>
+        <!-- Custom scripts -->
+        <script type="text/javascript" src="src/my-scripts.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

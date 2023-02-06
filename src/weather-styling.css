@@ -1,0 +1,175 @@
+body {
+  text-align: center;
+  margin: auto;
+  padding: 28px 0px 193px;
+}
+
+.body-outline-containment {
+  border-radius: 10px;
+  border: 2px solid lightgrey;
+  margin: 10px;
+  padding: 272px 25px 15px;
+}
+
+.form-outline .form-control {
+  margin-right: 117px !important;
+}
+
+.input-group {
+  display: grid !important;
+  grid-auto-flow: column !important;
+  width: 100% !important;
+  margin-top: -241px;
+  justify-content: center;
+}
+.search {
+  max-width: 740px;
+}
+
+.premade-city-serch {
+  margin: auto;
+  display: grid;
+  grid-auto-flow: column !important;
+  /* grid-template-columns: repeat(5, 44px); */
+  margin-top: 7px;
+  max-width: 318px;
+  /* width: 100%; */
+  /* justify-content: center; */
+  text-align: center;
+}
+
+.line-breaker {
+  cursor: default;
+  text-align: center;
+}
+
+.main-panel {
+  text-align: center;
+  border: 1px solid white;
+  margin-top: 45px;
+  margin-bottom: 42px;
+  padding: 0px 10px;
+}
+
+.main-diplay-city {
+  position: relative;
+  top: -1px;
+  left: -107px;
+}
+
+.forecast-day {
+  margin: 0px 0px;
+}
+
+.icon-weather {
+  font-size: 81px;
+  position: relative;
+  top: -13px;
+  left: -54px;
+}
+.side-panel {
+  margin-top: -108px;
+  margin-left: 3px;
+}
+
+.Celeus {
+  font-size: 15px;
+  position: relative;
+  top: -26px;
+  left: 0px;
+}
+
+.farinhite {
+  font-size: 15px;
+  position: relative;
+  top: -26px;
+  left: 0px;
+}
+
+.Celeus-farinhite {
+  font-size: 15px;
+  position: relative;
+  top: -27px;
+  left: 5px;
+}
+
+.clock-calander {
+  position: relative;
+  top: -20px;
+  left: 60px;
+}
+
+.main-temp-panel {
+  font-weight: 400;
+  font-size: 50px;
+  position: relative;
+  top: -30px;
+  left: 86px;
+}
+.the-precipition {
+  font-size: 13px;
+  position: relative;
+  top: -20px;
+  left: 90px;
+}
+
+.the-wind {
+  font-size: 13px;
+  position: relative;
+  top: -20px;
+  left: 87px;
+}
+
+.mini {
+  display: block;
+  font-size: 17px;
+}
+
+.row {
+  position: relative;
+  left: 14px;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.size-for-one {
+  margin-left: 10px;
+}
+
+.forecast-day {
+  position: relative;
+  left: -5px;
+}
+
+.space-for-icon {
+  position: relative;
+  left: -5px;
+  font-size: 31px;
+  margin: 15px 0px;
+}
+
+.temp-bottom-panel {
+  position: relative;
+  left: -3px;
+}
+.forcast-bottom-panel {
+  justify-content: center;
+  padding: 0px 10px;
+  text-align: center;
+}
+
+.col-1 {
+  padding-left: 0px !important;
+}
+.col-2 {
+  padding-right: 0px !important;
+}
+
+.size-middle-coloum-adjust {
+  position: relative;
+  left: -11px;
+}
+
+.temp-bottom-panel {
+  font-size: 20px;
+  font-weight: 400;
+}

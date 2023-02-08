@@ -173,3 +173,8 @@ body {
   font-size: 20px;
   font-weight: 400;
 }
+
+.git-link {
+  position: relative;
+  left: 0px;
+}

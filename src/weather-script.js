@@ -122,7 +122,7 @@ function liveDataInputDisplay(response) {
   );
 
   mainTitleDisplay.innerHTML = `${response.data.city}`;
-  theMainTemp.innerHTML = Math.floor(response.data.city.temperature);
+  theMainTemp.innerHTML = Math.floor(response.data.temperature.current);
   liveWindMainDisplay.innerHTML = Math.floor(response.data.wind.speed);
   livePrecipitionMsinDisplay.innerHTML = Math.floor(
     response.data.temperature.humidity

@@ -114,6 +114,7 @@ function liveDataInputDisplay(response) {
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
   );
+  console.log(response.data);
   let theMainTemp = document.querySelector("#Main-display-temp");
   let liveWindMainDisplay = document.querySelector("#the-main-wind-speed");
   let livePrecipitionMsinDisplay = document.querySelector(

@@ -114,7 +114,7 @@ function liveDataInputDisplay(response) {
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
   );
-  console.log(response.data);
+
   let theMainTemp = document.querySelector("#Main-display-temp");
   let liveWindMainDisplay = document.querySelector("#the-main-wind-speed");
   let livePrecipitionMsinDisplay = document.querySelector(
@@ -135,12 +135,14 @@ function findGeoWeatherLocation(position) {
 
   if (inputSearchDisplayTitle.value) {
     axios
-      .get(`${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}`)
+      .get(
+        `${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}&units=metric`
+      )
       .then(liveDataInputDisplay);
   } else {
     axios
       .get(
-        `${apiWeather}lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`
+        `${apiWeather}lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`
       )
       .then(liveDataInputDisplay);
   }

@@ -135,13 +135,13 @@ function findGeoWeatherLocation(position) {
   if (inputSearchDisplayTitle.value) {
     axios
       .get(
-        `${apiWeather}q=${inputSearchDisplayTitle.value}&appid=${apiKey}&units=metric`
+        `${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}&units=metric`
       )
       .then(liveDataInputDisplay);
   } else {
     axios
       .get(
-        `${apiWeather}lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`
+        `${apiWeather}lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`
       )
       .then(liveDataInputDisplay);
   }
@@ -151,8 +151,8 @@ let inputSearch = document.querySelector("button#submit-form-button");
 inputSearch.addEventListener("click", findGeoWeatherLocation);
 
 navigator.geolocation.getCurrentPosition(findGeoWeatherLocation);
-let apiWeather = "https://api.openweathermap.org/data/2.5/weather?";
-let apiKey = "2b6fdad0cbd018949c50c70f72250726";
+let apiWeather = "https://api.shecodes.io/weather/v1/current?";
+let apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
 
 /* 
 function tempGeo(position) {

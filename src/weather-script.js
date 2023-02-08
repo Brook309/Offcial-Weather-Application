@@ -121,11 +121,11 @@ function liveDataInputDisplay(response) {
     "#the-main-precipition"
   );
 
-  mainTitleDisplay.innerHTML = `${response.data.name}`;
-  theMainTemp.innerHTML = Math.floor(response.data.main.temp);
+  mainTitleDisplay.innerHTML = `${response.data.city}`;
+  theMainTemp.innerHTML = Math.floor(response.data.temperature);
   liveWindMainDisplay.innerHTML = Math.floor(response.data.wind.speed);
   livePrecipitionMsinDisplay.innerHTML = Math.floor(
-    response.data.main.humidity
+    response.data.temperature.humdity
   );
 }
 

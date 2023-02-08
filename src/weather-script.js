@@ -134,14 +134,12 @@ function findGeoWeatherLocation(position) {
 
   if (inputSearchDisplayTitle.value) {
     axios
-      .get(
-        `${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}&units=metric`
-      )
+      .get(`${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}`)
       .then(liveDataInputDisplay);
   } else {
     axios
       .get(
-        `${apiWeather}lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`
+        `${apiWeather}lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}`
       )
       .then(liveDataInputDisplay);
   }

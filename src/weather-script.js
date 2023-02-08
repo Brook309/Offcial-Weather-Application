@@ -125,7 +125,7 @@ function liveDataInputDisplay(response) {
   theMainTemp.innerHTML = Math.floor(response.data.city.temperature);
   liveWindMainDisplay.innerHTML = Math.floor(response.data.wind.speed);
   livePrecipitionMsinDisplay.innerHTML = Math.floor(
-    response.data.city.temperature.humdity
+    response.data.temperature.humidity
   );
 }
 

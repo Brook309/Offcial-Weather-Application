@@ -91,22 +91,17 @@ let theOldWeekDay = document.getElementById("theWeekDayDisplay");
 theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 
 //the tempurture
-/*function convertCeleus(event) {
-  event.preventDefault();
+function convertCeleus(response) {
+  response.preventDefault();
   let mainTempDisplayC = document.querySelector("#Main-display-temp");
   mainTempDisplayC.innerHTML = "23";
 }
 
-let celeus = document.querySelector("#Celeus-link");
-celeus.addEventListener("click", convertCeleus);
-
-function convertFarinhite(event) {
-  event.preventDefault();
+function convertFarinhite(response) {
+  response.preventDefault();
   let mainTempDisplayF = document.querySelector("#Main-display-temp");
   mainTempDisplayF.innerHTML = "73";
 }
-let farinhite = document.querySelector("#Farinhite-link");
-farinhite.addEventListener("click", convertFarinhite);*/
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {

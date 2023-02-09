@@ -111,6 +111,7 @@ farinhite.addEventListener("click", convertFarinhite);*/
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
+  console.log(response.data)
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
   );
@@ -121,7 +122,7 @@ function liveDataInputDisplay(response) {
     "#the-main-precipition"
   );
   let changeweathericon = document.querySelector("#icon-main-display");
-console.log(response.data)
+
   changeweathericon = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${}`;
   mainTitleDisplay.innerHTML = `${response.data.city}`;
   theMainTemp.innerHTML = Math.floor(response.data.temperature.current);

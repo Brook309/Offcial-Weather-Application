@@ -90,12 +90,6 @@ let theNewWeekDay = writtenDays[theCurrentFullDate.getDay()];
 let theOldWeekDay = document.getElementById("theWeekDayDisplay");
 theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 
-//the tempurture
-function convertCeleus() {
-  let mainTempDisplayC = document.querySelector("#Main-display-temp");
-  mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
-}
-
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
   console.log(response.data);
@@ -124,7 +118,8 @@ function liveDataInputDisplay(response) {
   }
   function convertFarinhite() {
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
-    mainTempDisplayF.innerHTML = "73";
+    mainTempDisplayF.innerHTML =
+      (Math.floor(response.data.temperature.current) * 9) / 5 + 32;
   }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);

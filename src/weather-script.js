@@ -119,7 +119,7 @@ function liveDataInputDisplay(response) {
   function convertFarinhite() {
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = Math.floor(
-      (response.data.temperature.current * 9) / 5 + 32);
+      (response.data.temperature.current * 9 / 5 + 32));
   }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);

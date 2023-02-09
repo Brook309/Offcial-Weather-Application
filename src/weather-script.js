@@ -120,7 +120,9 @@ function liveDataInputDisplay(response) {
   let livePrecipitionMsinDisplay = document.querySelector(
     "#the-main-precipition"
   );
-
+  let changeweathericon = document.querySelector("#icon-main-display");
+console.log(response.data)
+  changeweathericon = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${}`;
   mainTitleDisplay.innerHTML = `${response.data.city}`;
   theMainTemp.innerHTML = Math.floor(response.data.temperature.current);
   liveWindMainDisplay.innerHTML = Math.floor(response.data.wind.speed);

@@ -94,7 +94,7 @@ theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 function convertCeleus(response) {
   response.preventDefault();
   let mainTempDisplayC = document.querySelector("#Main-display-temp");
-  mainTempDisplayC.innerHTML = "23";
+  mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
 }
 
 function convertFarinhite(response) {

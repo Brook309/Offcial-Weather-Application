@@ -123,7 +123,6 @@ function liveDataInputDisplay(response) {
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
   }
   function convertFarinhite() {
-    response.preventDefault();
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = "73";
   }

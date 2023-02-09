@@ -132,10 +132,10 @@ function liveDataInputDisplay(response) {
 
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);
-}
 
-let celeus = document.querySelector("#Celeus-link");
-celeus.addEventListener("click", convertCeleus);
+  let celeus = document.querySelector("#Celeus-link");
+  celeus.addEventListener("click", convertCeleus);
+}
 
 //weather display
 function findGeoWeatherLocation(position) {

@@ -107,7 +107,7 @@ function convertFarinhite(event) {
   mainTempDisplayF.innerHTML = "73";
 }
 let farinhite = document.querySelector("#Farinhite-link");
-farinhite.addEventListener("click", convertFarinhite);*/
+farinhite.addEventListener("click", convertFarinhite);*/*/
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {

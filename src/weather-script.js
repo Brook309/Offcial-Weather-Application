@@ -123,7 +123,7 @@ function liveDataInputDisplay(response) {
   );
   let changeweathericon = document.querySelector("#icon-main-display");
 
-  changeweathericon = `${response.data.condition.icon_url}`;
+  changeweathericon.innerHTML = `${response.data.condition.icon_url}`;
   mainTitleDisplay.innerHTML = `${response.data.city}`;
   theMainTemp.innerHTML = Math.floor(response.data.temperature.current);
   liveWindMainDisplay.innerHTML = Math.floor(response.data.wind.speed);

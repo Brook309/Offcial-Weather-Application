@@ -118,7 +118,7 @@ function liveDataInputDisplay(response) {
   }
   function convertFarinhite() {
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
-    mainTempDisplayF.innerHTML = Math.ceil(
+    mainTempDisplayF.innerHTML = Math.round(
       (response.data.temperature.current * 9) / 5 + 32
     );
   }

@@ -92,7 +92,6 @@ theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 
 //the tempurture
 function convertCeleus(response) {
-  response.preventDefault();
   let mainTempDisplayC = document.querySelector("#Main-display-temp");
   mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
 }

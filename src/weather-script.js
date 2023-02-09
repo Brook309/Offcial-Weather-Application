@@ -96,8 +96,6 @@ function convertCeleus() {
   mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
 }
 
-f;
-
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
   console.log(response.data);

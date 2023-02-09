@@ -96,11 +96,7 @@ function convertCeleus() {
   mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
 }
 
-function convertFarinhite(response) {
-  response.preventDefault();
-  let mainTempDisplayF = document.querySelector("#Main-display-temp");
-  mainTempDisplayF.innerHTML = "73";
-}
+f;
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
@@ -124,6 +120,15 @@ function liveDataInputDisplay(response) {
     response.data.temperature.humidity
   );
 
+  function convertCeleus() {
+    let mainTempDisplayC = document.querySelector("#Main-display-temp");
+    mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
+  }
+  function convertFarinhite() {
+    response.preventDefault();
+    let mainTempDisplayF = document.querySelector("#Main-display-temp");
+    mainTempDisplayF.innerHTML = "73";
+  }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);
 

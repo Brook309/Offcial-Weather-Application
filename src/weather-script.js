@@ -86,7 +86,6 @@ let writtenDays = [
   "Saturday",
 ];
 let theNewWeekDay = writtenDays[theCurrentFullDate.getDay()];
-console.log(theNewWeekDay);
 
 let theOldWeekDay = document.getElementById("theWeekDayDisplay");
 theOldWeekDay.innerHTML = `${theNewWeekDay}`;
@@ -107,11 +106,11 @@ function convertFarinhite(event) {
   mainTempDisplayF.innerHTML = "73";
 }
 let farinhite = document.querySelector("#Farinhite-link");
-farinhite.addEventListener("click", convertFarinhite);*/*/
+farinhite.addEventListener("click", convertFarinhite);*/
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
-  console.log(response.data.condition.icon_url);
+  console.log(response.data);
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
   );
@@ -130,7 +129,13 @@ function liveDataInputDisplay(response) {
   livePrecipitionMsinDisplay.innerHTML = Math.floor(
     response.data.temperature.humidity
   );
+
+  let farinhite = document.querySelector("#Farinhite-link");
+  farinhite.addEventListener("click", convertFarinhite);
 }
+
+let celeus = document.querySelector("#Celeus-link");
+celeus.addEventListener("click", convertCeleus);
 
 //weather display
 function findGeoWeatherLocation(position) {

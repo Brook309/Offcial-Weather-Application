@@ -91,7 +91,7 @@ let theOldWeekDay = document.getElementById("theWeekDayDisplay");
 theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 
 //the tempurture
-function convertCeleus(response) {
+function convertCeleus() {
   let mainTempDisplayC = document.querySelector("#Main-display-temp");
   mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
 }
@@ -123,10 +123,7 @@ function liveDataInputDisplay(response) {
   livePrecipitionMsinDisplay.innerHTML = Math.floor(
     response.data.temperature.humidity
   );
-  function convertCeleus() {
-    let mainTempDisplayC = document.querySelector("#Main-display-temp");
-    mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
-  }
+
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);
 

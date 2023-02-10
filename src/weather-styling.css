@@ -104,7 +104,7 @@ body {
   color: black;
 }
 
-.Farinhite-change-colour-plus:focus {
+.Farinhite-change-colour-plus:focus-within {
   color: blue;
 }
 

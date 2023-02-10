@@ -120,6 +120,12 @@ body {
   left: 87px;
 }
 
+.the-description {
+  position: relative;
+  top: 10px;
+  right: 10px;
+}
+
 .mini {
   display: block;
   font-size: 17px;

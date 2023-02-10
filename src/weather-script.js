@@ -92,7 +92,6 @@ theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
-  console.log(response.data);
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
   );

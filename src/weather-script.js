@@ -107,9 +107,8 @@ function liveDataInputDisplay(response) {
   let changeweathericon = document.querySelector("#icon-main-display");
 
   changeweathericon.setAttribute("src", `${response.data.condition.icon_url}`);
-  mainDisplayWeatherDescription.innerHTML = `${response.data.condition.icon_url}`;
-  mainTitleDisplay.innerHTML = `${response.data.condition.description}`;
-  console.log(response.data.condition.description);
+  mainDisplayWeatherDescription.innerHTML = `${response.data.condition.description}`;
+  mainTitleDisplay.innerHTML = `${response.data.city}`;
   theMainTemp.innerHTML = Math.floor(response.data.temperature.current);
   liveWindMainDisplay.innerHTML = Math.floor(response.data.wind.speed);
   livePrecipitionMsinDisplay.innerHTML = Math.floor(

@@ -114,29 +114,25 @@ function liveDataInputDisplay(response) {
     response.data.temperature.humidity
   );
 
-  function convertCeleus(event) {
-    event.preventDefault();
+  function convertCeleus() {
+    let celeuschangecolour = document.querySelector("Celeus-change-colour");
     let farinhitechangecolour = document.querySelector(
-      "Farinhite-change-colour-plus"
+      "Farinhite-change-colour"
     );
-    let celeuschangecolour = document.querySelector(
-      "Celeus-change-colour-plus"
-    );
-    celeuschangecolour.classList.remove("Celeus-change-colour-plus");
-    //farinhitechangecolour.classList.add("Farinhite-change-colour-plus");
+    celeuschangecolour.classList.add("plus");
+    farinhitechangecolour.classList.remove("plus");
+
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
   }
-  function convertFarinhite(event) {
-    event.preventDefault();
-    let celeuschangecolour = document.querySelector(
-      "Celeus-change-colour-plus"
-    );
+  function convertFarinhite() {
+    let celeuschangecolour = document.querySelector("Celeus-change-colour");
     let farinhitechangecolour = document.querySelector(
-      "Farinhite-change-colour-plus"
+      "Farinhite-change-colour"
     );
-    //celeuschangecolour.classList.add("Celeus-change-colour-plus");
-    farinhitechangecolour.classList.remove("Farinhite-change-colour-plus");
+    celeuschangecolour.classList.remove("plus");
+    farinhitechangecolour.classList.add("plus");
+
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = Math.floor(
       (response.data.temperature.current * 9) / 5 + 32

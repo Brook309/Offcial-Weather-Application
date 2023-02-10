@@ -85,6 +85,9 @@ body {
   top: -26px;
   left: 0px;
 }
+.Farinhite-change-colour {
+  color: black;
+}
 
 .Celeus-farinhite {
   font-size: 15px;
@@ -92,14 +95,13 @@ body {
   top: -27px;
   left: 5px;
 }
-.Celeus-change-colour-plus {
+.Celeus-change-colour {
   color: black;
 }
 
-.Farinhite-change-colour-plus {
-  color: black;
+.plus {
+  color: var(--mdb-link-color);
 }
-
 
 .clock-calander {
   position: relative;

@@ -115,6 +115,7 @@ function liveDataInputDisplay(response) {
   );
 
   function convertCeleus() {
+    event.preventDefault();
     let farinhitechangecolour = document.querySelector(
       "Farinhite-change-colour-plus"
     );
@@ -131,6 +132,7 @@ function liveDataInputDisplay(response) {
     );
   }
   function convertFarinhite() {
+    event.preventDefault();
     let celeuschangecolour = document.querySelector(
       "Celeus-change-colour-plus"
     );

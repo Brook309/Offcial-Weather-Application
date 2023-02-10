@@ -121,7 +121,7 @@ function liveDataInputDisplay(response) {
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
     celeuschangecolour.classList.add(
-      ".colour-change-black-when-clicked-Far-and-Cel"
+      "colour-change-black-when-clicked-Far-and-Cel"
     );
   }
   function convertFarinhite() {
@@ -133,7 +133,7 @@ function liveDataInputDisplay(response) {
       (response.data.temperature.current * 9) / 5 + 32
     );
     farinhitechangecolour.classList.add(
-      ".colour-change-black-when-clicked-Far-and-Cel"
+      "colour-change-black-when-clicked-Far-and-Cel"
     );
   }
   let farinhite = document.querySelector("#Farinhite-link");

@@ -115,22 +115,33 @@ function liveDataInputDisplay(response) {
   );
 
   function convertCeleus() {
+    let celeuschangecolour = document.querySelector("Celeus-change-colour+");
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
+    celeuschangecolour.classList.add(
+      ".colour-change-black-when-clicked-Far-and-Cel"
+    );
   }
   function convertFarinhite() {
+    let farinhitechangecolour = document.querySelector(
+      "Farinhite-change-colour+"
+    );
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = Math.floor(
       (response.data.temperature.current * 9) / 5 + 32
     );
+    farinhitechangecolour.classList.add(
+      ".colour-change-black-when-clicked-Far-and-Cel"
+    );
   }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);
-  farinhite.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
+  //farinhite.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
 
   let celeus = document.querySelector("#Celeus-link");
   celeus.addEventListener("click", convertCeleus);
-celeus.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
+}
+//celeus.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
 
 //weather display
 function findGeoWeatherLocation(position) {

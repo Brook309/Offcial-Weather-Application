@@ -121,9 +121,10 @@ body {
 }
 
 .the-description {
+  text-align: center;
   position: relative;
-  top: -99px;
-  right: -230px;
+  top: -96px;
+  right: 118px;
 }
 
 .mini {

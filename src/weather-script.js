@@ -114,7 +114,7 @@ function liveDataInputDisplay(response) {
     response.data.temperature.humidity
   );
 
-  function convertCeleus() {
+  function convertCeleus(event) {
     event.preventDefault();
     let farinhitechangecolour = document.querySelector(
       "Farinhite-change-colour-plus"
@@ -122,32 +122,28 @@ function liveDataInputDisplay(response) {
     let celeuschangecolour = document.querySelector(
       "Celeus-change-colour-plus"
     );
-    let mainTempDisplayC = document.querySelector("#Main-display-temp");
-    mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
     celeuschangecolour.classList.add(
       "colour-change-black-when-clicked-Far-and-Cel"
     );
     farinhitechangecolour.classList.remove(
       "colour-change-black-when-clicked-Far-and-Cel"
     );
+    let mainTempDisplayC = document.querySelector("#Main-display-temp");
+    mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
   }
-  function convertFarinhite() {
+  function convertFarinhite(event) {
     event.preventDefault();
-    let celeuschangecolour = document.querySelector(
-      "Celeus-change-colour-plus"
-    );
-    let farinhitechangecolour = document.querySelector(
-      "Farinhite-change-colour-plus"
-    );
+    //let celeuschangecolour = document.querySelector(
+    //  "Celeus-change-colour-plus"
+    //);
+    // let farinhitechangecolour = document.querySelector(
+    // "Farinhite-change-colour-plus"
+    //);
+    celeuschangecolour.classList.add("Celeus-change-colour-plus");
+    farinhitechangecolour.classList.remove("Farinhite-change-colour-plus");
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = Math.floor(
       (response.data.temperature.current * 9) / 5 + 32
-    );
-    celeuschangecolour.classList.remove(
-      "colour-change-black-when-clicked-Far-and-Cel"
-    );
-    farinhitechangecolour.classList.add(
-      "colour-change-black-when-clicked-Far-and-Cel"
     );
   }
   let farinhite = document.querySelector("#Farinhite-link");

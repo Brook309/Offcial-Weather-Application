@@ -96,7 +96,9 @@ function liveDataInputDisplay(response) {
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
   );
-
+  let mainDisplayWeatherDescription = document.querySelector(
+    "#main-display-weather-description"
+  );
   let theMainTemp = document.querySelector("#Main-display-temp");
   let liveWindMainDisplay = document.querySelector("#the-main-wind-speed");
   let livePrecipitionMsinDisplay = document.querySelector(
@@ -105,7 +107,8 @@ function liveDataInputDisplay(response) {
   let changeweathericon = document.querySelector("#icon-main-display");
 
   changeweathericon.setAttribute("src", `${response.data.condition.icon_url}`);
-  mainTitleDisplay.innerHTML = `${response.data.city}`;
+  mainDisplayWeatherDescription.innerHTML = `${response.data.condition.icon_url}`;
+  mainTitleDisplay.innerHTML = `${response.data.condition.description}`;
   theMainTemp.innerHTML = Math.floor(response.data.temperature.current);
   liveWindMainDisplay.innerHTML = Math.floor(response.data.wind.speed);
   livePrecipitionMsinDisplay.innerHTML = Math.floor(

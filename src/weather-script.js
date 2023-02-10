@@ -120,6 +120,10 @@ function liveDataInputDisplay(response) {
     );
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
+    celeuschangecolour.classList.add(
+      "colour-change-black-when-clicked-Far-and-Cel"
+    );
+    celeuschangecolour.classList.remove("Celeus-change-colour-plus");
   }
   function convertFarinhite() {
     let farinhitechangecolour = document.querySelector(
@@ -132,12 +136,10 @@ function liveDataInputDisplay(response) {
   }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);
- 
 
   let celeus = document.querySelector("#Celeus-link");
   celeus.addEventListener("click", convertCeleus);
 }
-
 
 //weather display
 function findGeoWeatherLocation(position) {

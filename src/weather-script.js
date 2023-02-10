@@ -123,7 +123,9 @@ function liveDataInputDisplay(response) {
     celeuschangecolour.classList.add(
       "colour-change-black-when-clicked-Far-and-Cel"
     );
-    celeuschangecolour.classList.remove("Celeus-change-colour-plus");
+    celeuschangecolour.classList.remove(
+      "colour-change-black-when-clicked-Far-and-Cel"
+    );
   }
   function convertFarinhite() {
     let farinhitechangecolour = document.querySelector(

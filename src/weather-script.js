@@ -128,7 +128,7 @@ function liveDataInputDisplay(response) {
   farinhite.addEventListener(
     "click",
     convertFarinhite,
-    add("colour-change-black-when-clicked-Far-and-Cel")[]
+    add("colour-change-black-when-clicked-Far-and-Cel")
   );
   //Farinhite.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
 

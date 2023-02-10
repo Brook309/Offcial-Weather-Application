@@ -128,15 +128,15 @@ function liveDataInputDisplay(response) {
   farinhite.addEventListener(
     "click",
     convertFarinhite,
-    classlist.add("colour-change-black-when-clicked-Far-and-Cel")
+    farinhite.classlist.add("colour-change-black-when-clicked-Far-and-Cel")
   );
-  //Farinhite.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
+  //farinhite.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
 
   let celeus = document.querySelector("#Celeus-link");
   celeus.addEventListener(
     "click",
     convertCeleus,
-    classlist.add("colour-change-black-when-clicked-Far-and-Cel")
+    celeus.classlist.add("colour-change-black-when-clicked-Far-and-Cel")
   );
 }
 //celeus.classlist.add("colour-change-black-when-clicked-Far-and-Cel");

@@ -117,18 +117,14 @@ function liveDataInputDisplay(response) {
   function convertCeleus() {
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
-    mainTempDisplayC.classlist.add(
-      "colour-change-black-when-clicked-Far-and-Cel"
-    );
+    celeus.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
   }
   function convertFarinhite() {
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = Math.floor(
       (response.data.temperature.current * 9) / 5 + 32
     );
-    mainTempDisplayf.classlist.add(
-      "colour-change-black-when-clicked-Far-and-Cel"
-    );
+    Farinhite.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
   }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);

@@ -92,6 +92,13 @@ body {
   top: -27px;
   left: 5px;
 }
+.Celeus-change-colour-plus {
+  color: default;
+}
+
+.Farinhite-change-colour-plus {
+  color: default;
+}
 
 .colour-change-black-when-clicked-Far-and-Cel {
   color: black;

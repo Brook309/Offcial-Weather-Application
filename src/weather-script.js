@@ -115,7 +115,9 @@ function liveDataInputDisplay(response) {
   );
 
   function convertCeleus() {
-    let celeuschangecolour = document.querySelector("Celeus-change-colour+");
+    let celeuschangecolour = document.querySelector(
+      "Celeus-change-colour-plus"
+    );
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
     celeuschangecolour.classList.add(
@@ -124,7 +126,7 @@ function liveDataInputDisplay(response) {
   }
   function convertFarinhite() {
     let farinhitechangecolour = document.querySelector(
-      "Farinhite-change-colour+"
+      "Farinhite-change-colour-plus"
     );
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = Math.floor(

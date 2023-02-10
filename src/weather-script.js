@@ -122,23 +122,19 @@ function liveDataInputDisplay(response) {
     let celeuschangecolour = document.querySelector(
       "Celeus-change-colour-plus"
     );
-    celeuschangecolour.classList.add(
-      "colour-change-black-when-clicked-Far-and-Cel"
-    );
-    farinhitechangecolour.classList.remove(
-      "colour-change-black-when-clicked-Far-and-Cel"
-    );
+    celeuschangecolour.classList.remove("Celeus-change-colour-plus");
+    farinhitechangecolour.classList.add("Farinhite-change-colour-plus");
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
   }
   function convertFarinhite(event) {
     event.preventDefault();
-    //let celeuschangecolour = document.querySelector(
-    //  "Celeus-change-colour-plus"
-    //);
-    // let farinhitechangecolour = document.querySelector(
-    // "Farinhite-change-colour-plus"
-    //);
+    let celeuschangecolour = document.querySelector(
+      "Celeus-change-colour-plus"
+    );
+    let farinhitechangecolour = document.querySelector(
+      "Farinhite-change-colour-plus"
+    );
     celeuschangecolour.classList.add("Celeus-change-colour-plus");
     farinhitechangecolour.classList.remove("Farinhite-change-colour-plus");
     let mainTempDisplayF = document.querySelector("#Main-display-temp");

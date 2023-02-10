@@ -123,7 +123,7 @@ function liveDataInputDisplay(response) {
       "Celeus-change-colour-plus"
     );
     celeuschangecolour.classList.remove("Celeus-change-colour-plus");
-    farinhitechangecolour.classList.add("Farinhite-change-colour-plus");
+    //farinhitechangecolour.classList.add("Farinhite-change-colour-plus");
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
   }
@@ -135,7 +135,7 @@ function liveDataInputDisplay(response) {
     let farinhitechangecolour = document.querySelector(
       "Farinhite-change-colour-plus"
     );
-    celeuschangecolour.classList.add("Celeus-change-colour-plus");
+    //celeuschangecolour.classList.add("Celeus-change-colour-plus");
     farinhitechangecolour.classList.remove("Farinhite-change-colour-plus");
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = Math.floor(

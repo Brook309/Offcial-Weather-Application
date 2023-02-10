@@ -96,11 +96,15 @@ body {
   color: black;
 }
 
+.Celeus-change-colour-plus:focus {
+  color: blue;
+}
+
 .Farinhite-change-colour-plus {
   color: black;
 }
 
-.Celeus-change-colour-plus:focus {
+.Farinhite-change-colour-plus:focus {
   color: blue;
 }
 

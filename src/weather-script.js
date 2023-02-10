@@ -132,12 +132,12 @@ function liveDataInputDisplay(response) {
   }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);
-  //farinhite.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
+ 
 
   let celeus = document.querySelector("#Celeus-link");
   celeus.addEventListener("click", convertCeleus);
 }
-//celeus.classlist.add("colour-change-black-when-clicked-Far-and-Cel");
+
 
 //weather display
 function findGeoWeatherLocation(position) {

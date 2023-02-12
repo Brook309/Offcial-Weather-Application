@@ -115,23 +115,15 @@ function liveDataInputDisplay(response) {
   );
 
   function convertCeleus() {
-    let celeuschangecolour = document.querySelector("Celeus-change-colour");
-    let farinhitechangecolour = document.querySelector(
-      "Farinhite-change-colour"
-    );
-    celeuschangecolour.classList.add("plus");
-    farinhitechangecolour.classList.remove("plus");
+    celeus.classList.add("plus");
+    farinhite.classList.remove("plus");
 
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
   }
   function convertFarinhite() {
-    let celeuschangecolour = document.querySelector("Celeus-change-colour");
-    let farinhitechangecolour = document.querySelector(
-      "Farinhite-change-colour"
-    );
-    celeuschangecolour.classList.remove("plus");
-    farinhitechangecolour.classList.add("plus");
+    celeus.classList.remove("plus");
+    farinhite.classList.add("plus");
 
     let mainTempDisplayF = document.querySelector("#Main-display-temp");
     mainTempDisplayF.innerHTML = Math.floor(

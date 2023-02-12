@@ -85,9 +85,6 @@ body {
   top: -26px;
   left: 0px;
 }
-.Farinhite-change-colour {
-  color: black;
-}
 
 .Celeus-farinhite {
   font-size: 15px;
@@ -95,12 +92,20 @@ body {
   top: -27px;
   left: 5px;
 }
-.Celeus-change-colour {
+
+a {
   color: black;
 }
-
 .plus {
-  color: var(--mdb-link-color);
+  color: var(--mdb-link-hover-color);
+}
+
+.plus:hover {
+  color: var(--mdb-link-hover-color);
+}
+
+a:active {
+  color: var(--mdb-link-hover-color) !important;
 }
 
 .clock-calander {

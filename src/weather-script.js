@@ -123,17 +123,21 @@ function liveDataInputDisplay(response) {
     .then(forcastForCityLiveData);
 
   function forcastForCityLiveData(response) {
-    // let days = ["Mon", "Tue", "Wens", "Thur", "Fri", "Sat", "Sun"];
-    // let numTowordsDays = days[response.data.daily];
+    let dateForUpcomingForcast = new Date(response.data.daily[0].time);
+    let simplfiedDay = dateForUpcomingForcast.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
+    let timeTurnsDays = days[simplfiedDay];
+
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
-    console.log(response.data);
-    console.log(response.data.daily);
-    console.log(response.data.daily[0].temperature.day);
+    //console.log(response.data);
+    //console.log(response.data.daily);
+    //console.log(response.data.daily.time);
+
     //console.log(response.data.daily());
     upcomingforcastElement.innerHTML = `
             <div class="row align-items-start">
             <div class="size-for-one col-1">
-              <h1 class="mini forecast-day">${response.data.daily[1]}</h1>
+              <h1 class="mini forecast-day">${timeTurnsDays}</h1>
                 <i class="space-for-icon fa-regular fa-sun"></i>
               <h2 class="mini temp-bottom-panel">${Math.floor(
                 response.data.daily[1].temperature.day

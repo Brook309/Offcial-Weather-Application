@@ -113,6 +113,67 @@ function liveDataInputDisplay(response) {
   livePrecipitionMsinDisplay.innerHTML = Math.floor(
     response.data.temperature.humidity
   );
+  console.log(response.data.coordinates.latitude);
+  console.log(response.data.coordinates.longitude);
+
+  axios
+    .get(
+      `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
+    )
+    .then(forcastForCityLiveData);
+
+  function forcastForCityLiveData(response) {
+    // let days = ["Mon", "Tue", "Wens", "Thur", "Fri", "Sat", "Sun"];
+    // let numTowordsDays = days[response.data.daily];
+    let upcomingforcastElement = document.querySelector("#live-forecast-js");
+    console.log(response.data);
+    console.log(response.data.daily);
+    console.log(response.data.daily[0].temperature.day);
+    //console.log(response.data.daily());
+    upcomingforcastElement.innerHTML = `
+            <div class="row align-items-start">
+            <div class="size-for-one col-1">
+              <h1 class="mini forecast-day">${response.data.daily[1]}</h1>
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              <h2 class="mini temp-bottom-panel">${Math.floor(
+                response.data.daily[1].temperature.day
+              )}°C</h2>
+            </div>
+
+           <div class="col-2">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">23C</h2>
+            </div>
+
+            <div class="size-middle-coloum-adjust col-3">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">23C</h2>
+            </div>
+
+            <div class="col-1">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">23C</h2>
+            </div>
+
+            <div class="col-2">
+              <h1 class="mini forecast-day">title</h1>
+              <div class="mini bottom-icon">
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              </div>
+              <h2 class="mini temp-bottom-panel">24C</h2>
+            </div>
+          </div>
+        </div>`;
+  }
 
   function convertCeleus() {
     celeus.classList.add("plus");
@@ -162,6 +223,8 @@ inputSearch.addEventListener("click", findGeoWeatherLocation);
 navigator.geolocation.getCurrentPosition(findGeoWeatherLocation);
 let apiWeather = "https://api.shecodes.io/weather/v1/current?";
 let apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
+
+//Forcast bottom pannel
 
 /* 
 function tempGeo(position) {

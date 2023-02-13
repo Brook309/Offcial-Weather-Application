@@ -100,7 +100,7 @@ a {
   color: var(--mdb-link-hover-color);
 }
 
-.plus:hover {
+a:hover {
   color: var(--mdb-link-hover-color);
 }
 

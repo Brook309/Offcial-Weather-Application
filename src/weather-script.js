@@ -123,26 +123,29 @@ function liveDataInputDisplay(response) {
     .then(forcastForCityLiveData);
 
   function forcastForCityLiveData(response) {
-    let dateForUpcomingForcast = new Date(response.data.daily[0].time);
+    let dateForUpcomingForcast = new Date(response.data.daily[1].time);
     let simplfiedDay = dateForUpcomingForcast.getDay();
-    let days = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
-    let timeTurnsDays = days[simplfiedDay];
-    let theForcastObject = response.data.daily;
+    let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
+    let timeConvertedToDays = writtendays[simplfiedDay];
 
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
     console.log(response.data);
 
+    let divRowBinder = `<div class="row align-items-start">`;
+    let theForcastObject = response.data.daily;
+
     theForcastObject.forEach(repeatForecast);
     function repeatForecast(theForcastObject, index) {
       if (index < 5) {
-        upcomingforcastElement.innerHTML += `
+        divRowBinder += `
              <div class="col-2">
-              <h1 class="mini forecast-day">${timeTurnsDays}</h1>
-                <i class="space-for-icon fa-regular fa-sun"></i>
+              <h1 class="mini forecast-day">${theForcastObject.time}</h1>
+                <img src="${theForcastObject.condition.icon_url}">
               <h2 class="mini temp-bottom-panel">${Math.floor(
-                response.data.daily[0].temperature.day
+                theForcastObject.temperature.day
               )}°C</h2>
               </div>`;
+        upcomingforcastElement.innerHTML = divRowBinder;
       }
     }
     /*theForcastObject.forEach(function (timeTurnsDays, index) {

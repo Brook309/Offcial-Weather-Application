@@ -131,11 +131,11 @@ function liveDataInputDisplay(response) {
 
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
     console.log(response.data);
-    let divRow = `<div class="row align-items-start">`;
-    let text = "";
+
     theForcastObject.forEach(repeatForecast);
-    function repeatForecast(timeTurnsDays, index) {
-      upcomingforcastElement.innerHTML += index = `
+    function repeatForecast(theForcastObject, index) {
+      if (index < 5) {
+        upcomingforcastElement.innerHTML += `
              <div class="col-2">
               <h1 class="mini forecast-day">${timeTurnsDays}</h1>
                 <i class="space-for-icon fa-regular fa-sun"></i>
@@ -143,6 +143,7 @@ function liveDataInputDisplay(response) {
                 response.data.daily[0].temperature.day
               )}°C</h2>
               </div>`;
+      }
     }
     /*theForcastObject.forEach(function (timeTurnsDays, index) {
       if (index > 3 && timeTurnsDays + days) {

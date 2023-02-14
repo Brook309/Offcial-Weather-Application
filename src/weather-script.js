@@ -131,15 +131,12 @@ function liveDataInputDisplay(response) {
 
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
     console.log(response.data);
-    let divRow = `<class="row align-items-start">`;
+    let divRow = `<div class="row align-items-start">`;
     let text = "";
     theForcastObject.forEach(repeatForecast);
     function repeatForecast(timeTurnsDays, index) {
-      index +=
-        upcomingforcastElement.innerHTML +=
-        divRow =
-          `
-             <div class="col-1">
+      upcomingforcastElement.innerHTML += index = `
+             <div class="col-2">
               <h1 class="mini forecast-day">${timeTurnsDays}</h1>
                 <i class="space-for-icon fa-regular fa-sun"></i>
               <h2 class="mini temp-bottom-panel">${Math.floor(

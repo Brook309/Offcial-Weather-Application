@@ -115,7 +115,7 @@ function liveDataInputDisplay(response) {
   );
   console.log(response.data.coordinates.latitude);
   console.log(response.data.coordinates.longitude);
-
+  //the forcast upcoming
   axios
     .get(
       `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
@@ -127,24 +127,41 @@ function liveDataInputDisplay(response) {
     let simplfiedDay = dateForUpcomingForcast.getDay();
     let days = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
     let timeTurnsDays = days[simplfiedDay];
+    let theForcastObject = response.data.daily;
 
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
-    //console.log(response.data);
-    //console.log(response.data.daily);
-    //console.log(response.data.daily.time);
-
-    //console.log(response.data.daily());
-    upcomingforcastElement.innerHTML = `
-            <div class="row align-items-start">
-            <div class="size-for-one col-1">
+    console.log(response.data);
+    let divRow = `<class="row align-items-start">`;
+    let text = "";
+    theForcastObject.forEach(repeatForecast);
+    function repeatForecast(timeTurnsDays, index) {
+      index +=
+        upcomingforcastElement.innerHTML +=
+        divRow =
+          `
+             <div class="col-1">
               <h1 class="mini forecast-day">${timeTurnsDays}</h1>
                 <i class="space-for-icon fa-regular fa-sun"></i>
               <h2 class="mini temp-bottom-panel">${Math.floor(
-                response.data.daily[1].temperature.day
+                response.data.daily[0].temperature.day
               )}°C</h2>
-            </div>
-
-           <div class="col-2">
+              </div>`;
+    }
+    /*theForcastObject.forEach(function (timeTurnsDays, index) {
+      if (index > 3 && timeTurnsDays + days) {
+        upcomingforcastElement.innerHTML = `
+        <class="row align-items-start">
+             <div class="size-for-one col-1">
+              <h1 class="mini forecast-day">${days[simplfiedDay]}</h1>
+                <i class="space-for-icon fa-regular fa-sun"></i>
+              <h2 class="mini temp-bottom-panel">${Math.floor(
+                response.data.daily[0].temperature.day
+              )}°C</h2>
+              </div>
+             </div>`;
+      }
+    });*/
+    /*<div class="col-2">
               <h1 class="mini forecast-day">title</h1>
               <div class="mini bottom-icon">
                 <i class="space-for-icon fa-regular fa-sun"></i>
@@ -175,9 +192,12 @@ function liveDataInputDisplay(response) {
               </div>
               <h2 class="mini temp-bottom-panel">24C</h2>
             </div>
-          </div>
-        </div>`;
+          </div> */
   }
+
+  //console.log(response.data.daily.time);
+  //console.log(response.data.daily());
+  //let divRow = `<class="row align-items-start">`;
 
   function convertCeleus() {
     celeus.classList.add("plus");

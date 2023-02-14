@@ -153,9 +153,10 @@ a:active {
   justify-content: center;
   margin-bottom: 5px;
 }
+/*
 .size-for-one {
-  margin-left: 10px;
-}
+  margin-left: 10px !important;
+}*/
 
 .forecast-day {
   position: relative;

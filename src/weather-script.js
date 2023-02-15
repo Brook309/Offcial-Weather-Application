@@ -115,6 +115,7 @@ function liveDataInputDisplay(response) {
   );
   console.log(response.data.coordinates.latitude);
   console.log(response.data.coordinates.longitude);
+
   //the forcast upcoming
   axios
     .get(
@@ -123,11 +124,13 @@ function liveDataInputDisplay(response) {
     .then(forcastForCityLiveData);
 
   function forcastForCityLiveData(response) {
-    let dateForUpcomingForcast = new Date(response.data.daily[1].time);
-    let simplfiedDay = dateForUpcomingForcast.getDay();
-    let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
-    let timeConvertedToDays = writtendays[simplfiedDay];
-
+    function convertForcastDayDisplay(timestamp) {
+      let dateForUpcomingForcast = new Date(timestamp * 1000);
+      console.log(dateForUpcomingForcast);
+      let simplfiedDay = dateForUpcomingForcast.getDay();
+      let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
+      return writtendays[simplfiedDay];
+    }
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
     console.log(response.data);
 
@@ -139,10 +142,12 @@ function liveDataInputDisplay(response) {
       if (index < 5) {
         divRowBinder += `
              <div class="col-2">
-              <h1 class="mini forecast-day">${theForcastObject.time}</h1>
+              <h1 class="mini forecast-day">${convertForcastDayDisplay(
+                theForcastObject.time
+              )}</h1>
                 <img src="${theForcastObject.condition.icon_url}">
-              <h2 class="mini temp-bottom-panel">${Math.floor(
-                theForcastObject.temperature.day
+              <h2 class="mini temp-bottom-panel">${convertUpcomingForecastTemp(
+                Math.floor(theForcastObject.temperature.day)
               )}°C</h2>
               </div>`;
         upcomingforcastElement.innerHTML = divRowBinder;

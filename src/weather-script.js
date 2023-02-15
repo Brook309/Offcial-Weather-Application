@@ -146,11 +146,19 @@ function liveDataInputDisplay(response) {
                 theForcastObject.time
               )}</h1>
                 <img src="${theForcastObject.condition.icon_url}">
-              <h2 class="mini temp-bottom-panel">${convertUpcomingForecastTemp(
-                Math.floor(theForcastObject.temperature.day)
+              <h2 class="mini temp-bottom-panel" id="theH2TempDisplay">${convertUpcomingForecastTemp(
+                theForcastObject.temperature.day
               )}°C</h2>
               </div>`;
         upcomingforcastElement.innerHTML = divRowBinder;
+      }
+    }
+
+    function convertUpcomingForecastTemp(timestamp) {
+      if (timestamp === convertFarinhite) {
+        return Math.floor((timestamp * 9) / 5 + 32);
+      } else {
+        return Math.floor(timestamp);
       }
     }
     /*theForcastObject.forEach(function (timeTurnsDays, index) {

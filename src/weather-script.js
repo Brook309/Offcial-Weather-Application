@@ -155,12 +155,43 @@ function liveDataInputDisplay(response) {
     }
 
     function convertUpcomingForecastTemp(timestamp) {
-      if (timestamp === convertFarinhite) {
+      debugger;
+      let CeleusBottomTemp = document.querySelector("#Celeus-link");
+      let farinhiteBottomTemp = document.querySelector("#Farinhite-link");
+
+      if (farinhiteBottomTemp.classList.contains("plus")) {
         return Math.floor((timestamp * 9) / 5 + 32);
       } else {
         return Math.floor(timestamp);
       }
     }
+
+    //farinhiteBottomTemp.classList.remove("plus");
+    convertUpcomingForecastTemp();
+    /*if (farinhiteBottomTemp.classList.contains("plus"))*/
+    /*let div = document.querySelector("div");
+        let body = document.querySelector("body");
+
+        if (
+          div.classList.contains("ptheme") &&
+          body.classList.contains("bptheme")
+        ) {
+          div.classList.remove("ptheme");
+          body.classList.remove("bptheme");
+        } else {
+          div.classList.add("ptheme");
+          body.classList.add("bptheme");
+        }
+      }*/
+    //console.log(Math.floor((timestamp * 9) / 5 + 32));
+    /*let clickFar = document.querySelectorAll("Farinhite-change-colour plus");
+      let clickCel = document.querySelectorAll("Celeus-change-colour plus");
+      if (timestamp === clickFar) {
+        return Math.floor((timestamp * 9) / 5 + 32);
+      } else if (timestamp === clickCel) {
+        return Math.floor(timestamp);
+      }
+    }*/
     /*theForcastObject.forEach(function (timeTurnsDays, index) {
       if (index > 3 && timeTurnsDays + days) {
         upcomingforcastElement.innerHTML = `

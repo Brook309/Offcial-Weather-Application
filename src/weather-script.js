@@ -132,7 +132,7 @@ function liveDataInputDisplay(response) {
       return writtendays[simplfiedDay];
     }
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
-    console.log(response.data);
+    //console.log(response.data);
 
     let divRowBinder = `<div class="row align-items-start">`;
     let theForcastObject = response.data.daily;
@@ -162,24 +162,28 @@ function liveDataInputDisplay(response) {
   function convertUpcomingForecastTemp(timestamp) {
     console.log(timestamp);
     debugger;
-    //let CeleusBottomTemp = document.querySelector("#Celeus-link");
     let farinhiteBottomTemp = document.querySelector("#Farinhite-link");
-    let H2ForcastBottomPanal = document.querySelector("#theH2TempDisplay");
+    //let H2ForcastBottomPanal = document.querySelectorAll("h2#theH2TempDisplay");
+    let H2ForcastBottomPanal = document.querySelector("h2#theH2TempDisplay");
+    //console.log(H2ForcastBottomPanal);
+    let theSpecifyedTimestamp = timestamp.data.daily;
 
-    if (farinhiteBottomTemp.classList.contains("plus")) {
-      H2ForcastBottomPanal.innerHTML = `${Math.floor(
-        (timestamp.data.daily[0].temperature.day * 9) / 5 + 32
-      )}°F`;
-      //console.log(timestamp.data.daily[].temperature.day);
-    } else {
-      H2ForcastBottomPanal.innerHTML = `${Math.floor(
-        Math.floor(timestamp.data.daily[0].temperature.day)
-      )}°C`;
+    theSpecifyedTimestamp.forEach(repeatUnitConvers);
+    function repeatUnitConvers(theSpecifyedTimestamp) {
+      if (farinhiteBottomTemp.classList.contains("plus")) {
+        H2ForcastBottomPanal.innerHTML = `${Math.floor(
+          (theSpecifyedTimestamp.temperature.day * 9) / 5 + 32
+        )}°F`;
+      } else {
+        H2ForcastBottomPanal.innerHTML = `${Math.floor(
+          Math.floor(theSpecifyedTimestamp.temperature.day)
+        )}°C`;
+      }
+      //console.log(timestamp.data.daily.temperature.day);
     }
-    //console.log(timestamp.data.daily.temperature.day);
   }
-  //
-  console.log(convertUpcomingForecastTemp);
+  //console.log(convertUpcomingForecastTemp());
+  //console.log(convertUpcomingForecastTemp);
   function convertCeleus() {
     celeus.classList.add("plus");
     farinhite.classList.remove("plus");

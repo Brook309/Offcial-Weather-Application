@@ -14,7 +14,7 @@ AmPmconvert();
 function digitalConvert() {
   let theOldTimeHour = document.getElementById("theTimeHourDisplay");
   let DigtalHourTime = [
-    "0",
+    "12",
     "0",
     "0",
     "0",
@@ -147,110 +147,48 @@ function liveDataInputDisplay(response) {
               )}</h1>
                 <img src="${theForcastObject.condition.icon_url}">
               <h2 class="mini temp-bottom-panel" id="theH2TempDisplay">${convertUpcomingForecastTemp(
-                theForcastObject.temperature.day
+                theForcastObject
               )}°C</h2>
               </div>`;
         upcomingforcastElement.innerHTML = divRowBinder;
       }
     }
-
-    function convertUpcomingForecastTemp(timestamp) {
-      debugger;
-      let CeleusBottomTemp = document.querySelector("#Celeus-link");
-      let farinhiteBottomTemp = document.querySelector("#Farinhite-link");
-
-      if (farinhiteBottomTemp.classList.contains("plus")) {
-        return Math.floor((timestamp * 9) / 5 + 32);
-      } else {
-        return Math.floor(timestamp);
-      }
-    }
-
-    //farinhiteBottomTemp.classList.remove("plus");
-    convertUpcomingForecastTemp();
-    /*if (farinhiteBottomTemp.classList.contains("plus"))*/
-    /*let div = document.querySelector("div");
-        let body = document.querySelector("body");
-
-        if (
-          div.classList.contains("ptheme") &&
-          body.classList.contains("bptheme")
-        ) {
-          div.classList.remove("ptheme");
-          body.classList.remove("bptheme");
-        } else {
-          div.classList.add("ptheme");
-          body.classList.add("bptheme");
-        }
-      }*/
-    //console.log(Math.floor((timestamp * 9) / 5 + 32));
-    /*let clickFar = document.querySelectorAll("Farinhite-change-colour plus");
-      let clickCel = document.querySelectorAll("Celeus-change-colour plus");
-      if (timestamp === clickFar) {
-        return Math.floor((timestamp * 9) / 5 + 32);
-      } else if (timestamp === clickCel) {
-        return Math.floor(timestamp);
-      }
-    }*/
-    /*theForcastObject.forEach(function (timeTurnsDays, index) {
-      if (index > 3 && timeTurnsDays + days) {
-        upcomingforcastElement.innerHTML = `
-        <class="row align-items-start">
-             <div class="size-for-one col-1">
-              <h1 class="mini forecast-day">${days[simplfiedDay]}</h1>
-                <i class="space-for-icon fa-regular fa-sun"></i>
-              <h2 class="mini temp-bottom-panel">${Math.floor(
-                response.data.daily[0].temperature.day
-              )}°C</h2>
-              </div>
-             </div>`;
-      }
-    });*/
-    /*<div class="col-2">
-              <h1 class="mini forecast-day">title</h1>
-              <div class="mini bottom-icon">
-                <i class="space-for-icon fa-regular fa-sun"></i>
-              </div>
-              <h2 class="mini temp-bottom-panel">23C</h2>
-            </div>
-
-            <div class="size-middle-coloum-adjust col-3">
-              <h1 class="mini forecast-day">title</h1>
-              <div class="mini bottom-icon">
-                <i class="space-for-icon fa-regular fa-sun"></i>
-              </div>
-              <h2 class="mini temp-bottom-panel">23C</h2>
-            </div>
-
-            <div class="col-1">
-              <h1 class="mini forecast-day">title</h1>
-              <div class="mini bottom-icon">
-                <i class="space-for-icon fa-regular fa-sun"></i>
-              </div>
-              <h2 class="mini temp-bottom-panel">23C</h2>
-            </div>
-
-            <div class="col-2">
-              <h1 class="mini forecast-day">title</h1>
-              <div class="mini bottom-icon">
-                <i class="space-for-icon fa-regular fa-sun"></i>
-              </div>
-              <h2 class="mini temp-bottom-panel">24C</h2>
-            </div>
-          </div> */
   }
 
   //console.log(response.data.daily.time);
   //console.log(response.data.daily());
   //let divRow = `<class="row align-items-start">`;
 
+  function convertUpcomingForecastTemp(timestamp) {
+    console.log(timestamp);
+    debugger;
+    //let CeleusBottomTemp = document.querySelector("#Celeus-link");
+    let farinhiteBottomTemp = document.querySelector("#Farinhite-link");
+    //let H2ForcastBottomPanal = document.querySelectorAll("#theH2TempDisplay");
+
+    if (farinhiteBottomTemp.classList.contains("plus")) {
+      return Math.floor((timestamp.temperature.day * 9) / 5 + 32);
+      //console.log(timestamp.temperature.day);
+    } else {
+      return Math.floor(timestamp.temperature.day);
+    }
+    console.log(timestamp.temperature.day);
+  }
+  //
+  console.log(convertUpcomingForecastTemp);
   function convertCeleus() {
     celeus.classList.add("plus");
     farinhite.classList.remove("plus");
 
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
+    axios
+      .get(
+        `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
+      )
+      .then(convertUpcomingForecastTemp);
   }
+
   function convertFarinhite() {
     celeus.classList.remove("plus");
     farinhite.classList.add("plus");
@@ -259,6 +197,11 @@ function liveDataInputDisplay(response) {
     mainTempDisplayF.innerHTML = Math.floor(
       (response.data.temperature.current * 9) / 5 + 32
     );
+    axios
+      .get(
+        `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
+      )
+      .then(convertUpcomingForecastTemp);
   }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);

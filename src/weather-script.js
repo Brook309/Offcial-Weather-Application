@@ -146,8 +146,8 @@ function liveDataInputDisplay(response) {
                 theForcastObject.time
               )}</h1>
                 <img src="${theForcastObject.condition.icon_url}">
-              <h2 class="mini temp-bottom-panel" id="theH2TempDisplay">${convertUpcomingForecastTemp(
-                theForcastObject
+              <h2 class="mini temp-bottom-panel" id="theH2TempDisplay">${Math.floor(
+                theForcastObject.temperature.day
               )}°C</h2>
               </div>`;
         upcomingforcastElement.innerHTML = divRowBinder;
@@ -164,15 +164,19 @@ function liveDataInputDisplay(response) {
     debugger;
     //let CeleusBottomTemp = document.querySelector("#Celeus-link");
     let farinhiteBottomTemp = document.querySelector("#Farinhite-link");
-    //let H2ForcastBottomPanal = document.querySelectorAll("#theH2TempDisplay");
+    let H2ForcastBottomPanal = document.querySelector("#theH2TempDisplay");
 
     if (farinhiteBottomTemp.classList.contains("plus")) {
-      return Math.floor((timestamp.temperature.day * 9) / 5 + 32);
-      //console.log(timestamp.temperature.day);
+      H2ForcastBottomPanal.innerHTML = `${Math.floor(
+        (timestamp.data.daily[0].temperature.day * 9) / 5 + 32
+      )}°F`;
+      //console.log(timestamp.data.daily[].temperature.day);
     } else {
-      return Math.floor(timestamp.temperature.day);
+      H2ForcastBottomPanal.innerHTML = `${Math.floor(
+        Math.floor(timestamp.data.daily[0].temperature.day)
+      )}°C`;
     }
-    console.log(timestamp.temperature.day);
+    //console.log(timestamp.data.daily.temperature.day);
   }
   //
   console.log(convertUpcomingForecastTemp);

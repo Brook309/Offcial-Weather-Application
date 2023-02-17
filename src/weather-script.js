@@ -133,6 +133,7 @@ function liveDataInputDisplay(response) {
       let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
       return writtendays[simplfiedDay];
     }
+
     let divRowBinder = `<div class="row align-items-start">`;
     let theForcastObject = response.data.daily;
 
@@ -171,13 +172,7 @@ function liveDataInputDisplay(response) {
       upcomingforcastElement.innerHTML = divRowBinder;
     }
   }
-  function convertForcastDayDisplay(timestamp) {
-    let dateForUpcomingForcast = new Date(timestamp * 1000);
-    console.log(dateForUpcomingForcast);
-    let simplfiedDay = dateForUpcomingForcast.getDay();
-    let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
-    return writtendays[simplfiedDay];
-  }
+
   //console.log(response.data.daily.time);
   //console.log(response.data.daily());
   //let divRow = `<class="row align-items-start">`;
@@ -231,9 +226,13 @@ function liveDataInputDisplay(response) {
 
     let mainTempDisplayC = document.querySelector("#Main-display-temp");
     mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
+
+    let inputSearchDisplayTitle = document.querySelector(
+      "#main-title-display-search-city"
+    );
     axios
       .get(
-        `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
+        `https://api.shecodes.io/weather/v1/forecast?query=${inputSearchDisplayTitle.innerHTML}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
       )
       .then(forcastForCityLiveData);
   }
@@ -246,9 +245,12 @@ function liveDataInputDisplay(response) {
     mainTempDisplayF.innerHTML = Math.floor(
       (response.data.temperature.current * 9) / 5 + 32
     );
+    let inputSearchDisplayTitle = document.querySelector(
+      "#main-title-display-search-city"
+    );
     axios
       .get(
-        `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
+        `https://api.shecodes.io/weather/v1/forecast?query=${inputSearchDisplayTitle.innerHTML}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
       )
       .then(forcastForCityLiveData);
   }
@@ -268,6 +270,7 @@ function findGeoWeatherLocation(position) {
     let celeus = document.querySelector("#Celeus-link");
     celeus.classList.add("plus");
     farinhite.classList.remove("plus");
+
     axios
       .get(
         `${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}&units=metric`

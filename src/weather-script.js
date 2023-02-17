@@ -194,7 +194,6 @@ function liveDataInputDisplay(response) {
       }
       //console.log(timestamp.data.daily.temperature.day);
       upcomingforcastElement.innerHTML = divRowBinder;
-      console.log(upcomingforcastElement);
     }
   }
 
@@ -243,6 +242,10 @@ function findGeoWeatherLocation(position) {
   let inputSearchDisplayTitle = document.querySelector("input#form1");
 
   if (inputSearchDisplayTitle.value) {
+    let farinhite = document.querySelector("#Farinhite-link");
+    let celeus = document.querySelector("#Celeus-link");
+    celeus.classList.add("plus");
+    farinhite.classList.remove("plus");
     axios
       .get(
         `${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}&units=metric`

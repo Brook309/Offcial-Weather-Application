@@ -126,14 +126,37 @@ function liveDataInputDisplay(response) {
   function forcastForCityLiveData(response) {
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
     //console.log(response.data);
-
+    function convertForcastDayDisplay(timestamp) {
+      let dateForUpcomingForcast = new Date(timestamp * 1000);
+      console.log(dateForUpcomingForcast);
+      let simplfiedDay = dateForUpcomingForcast.getDay();
+      let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
+      return writtendays[simplfiedDay];
+    }
     let divRowBinder = `<div class="row align-items-start">`;
     let theForcastObject = response.data.daily;
 
     theForcastObject.forEach(repeatForecast);
     function repeatForecast(theForcastObject, index) {
-      if (index < 5) {
-        divRowBinder += `
+      debugger;
+      let farinhite = document.querySelector("#Farinhite-link");
+      let celeus = document.querySelector("#Celeus-link");
+      if (farinhite.classList.contains("plus")) {
+        if (index < 5) {
+          divRowBinder += `
+             <div class="col-2">
+              <h1 class="mini forecast-day">${convertForcastDayDisplay(
+                theForcastObject.time
+              )}</h1>
+                <img src="${theForcastObject.condition.icon_url}">
+              <h2 class="mini temp-bottom-panel" id="theH2TempDisplay">${Math.floor(
+                (theForcastObject.temperature.day * 9) / 5 + 32
+              )}°F</h2>
+              </div>`;
+        }
+      } else {
+        if (index < 5) {
+          divRowBinder += `
              <div class="col-2">
               <h1 class="mini forecast-day">${convertForcastDayDisplay(
                 theForcastObject.time
@@ -143,11 +166,11 @@ function liveDataInputDisplay(response) {
                 theForcastObject.temperature.day
               )}°C</h2>
               </div>`;
-        upcomingforcastElement.innerHTML = divRowBinder;
+        }
       }
+      upcomingforcastElement.innerHTML = divRowBinder;
     }
   }
-
   function convertForcastDayDisplay(timestamp) {
     let dateForUpcomingForcast = new Date(timestamp * 1000);
     console.log(dateForUpcomingForcast);
@@ -159,9 +182,8 @@ function liveDataInputDisplay(response) {
   //console.log(response.data.daily());
   //let divRow = `<class="row align-items-start">`;
 
-  function convertUpcomingForecastTemp(timestamp) {
+  /* function convertUpcomingForecastTemp(timestamp) {
     console.log(timestamp);
-    debugger;
     let divRowBinder = `<div class="row align-items-start">`;
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
     let farinhiteBottomTemp = document.querySelector("#Farinhite-link");
@@ -195,9 +217,9 @@ function liveDataInputDisplay(response) {
       //console.log(timestamp.data.daily.temperature.day);
       upcomingforcastElement.innerHTML = divRowBinder;
     }
-  }
+  }*/
 
-  console.log(convertUpcomingForecastTemp);
+  //console.log(convertUpcomingForecastTemp);
   //console.log(H2ForcastBottomPanal);
   //console.log(convertUpcomingForecastTemp());
   //console.log(convertUpcomingForecastTemp);
@@ -213,7 +235,7 @@ function liveDataInputDisplay(response) {
       .get(
         `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
       )
-      .then(convertUpcomingForecastTemp);
+      .then(forcastForCityLiveData);
   }
 
   function convertFarinhite() {
@@ -228,7 +250,7 @@ function liveDataInputDisplay(response) {
       .get(
         `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
       )
-      .then(convertUpcomingForecastTemp);
+      .then(forcastForCityLiveData);
   }
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);

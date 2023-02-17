@@ -124,13 +124,6 @@ function liveDataInputDisplay(response) {
     .then(forcastForCityLiveData);
 
   function forcastForCityLiveData(response) {
-    function convertForcastDayDisplay(timestamp) {
-      let dateForUpcomingForcast = new Date(timestamp * 1000);
-      console.log(dateForUpcomingForcast);
-      let simplfiedDay = dateForUpcomingForcast.getDay();
-      let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
-      return writtendays[simplfiedDay];
-    }
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
     //console.log(response.data);
 
@@ -155,6 +148,13 @@ function liveDataInputDisplay(response) {
     }
   }
 
+  function convertForcastDayDisplay(timestamp) {
+    let dateForUpcomingForcast = new Date(timestamp * 1000);
+    console.log(dateForUpcomingForcast);
+    let simplfiedDay = dateForUpcomingForcast.getDay();
+    let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
+    return writtendays[simplfiedDay];
+  }
   //console.log(response.data.daily.time);
   //console.log(response.data.daily());
   //let divRow = `<class="row align-items-start">`;
@@ -162,32 +162,46 @@ function liveDataInputDisplay(response) {
   function convertUpcomingForecastTemp(timestamp) {
     console.log(timestamp);
     debugger;
+    let divRowBinder = `<div class="row align-items-start">`;
     let upcomingforcastElement = document.querySelector("#live-forecast-js");
-
     let farinhiteBottomTemp = document.querySelector("#Farinhite-link");
-    let H2ForcastBottomPanal = document.querySelectorAll("h2#theH2TempDisplay");
-    //let H2ForcastBottomPanal = document.querySelector("h2#theH2TempDisplay");
-    //console.log(H2ForcastBottomPanal);
+    //let H2ForcastBottomPanal = document.querySelectorAll("h2#theH2TempDisplay");
+    let H2ForcastBottomPanal = document.querySelector("h2#theH2TempDisplay");
     let theSpecifyedTimestamp = timestamp.data.daily;
 
     theSpecifyedTimestamp.forEach(repeatUnitConvers);
     function repeatUnitConvers(theSpecifyedTimestamp, index) {
       if (farinhiteBottomTemp.classList.contains("plus")) {
         if (index < 5) {
-          H2ForcastBottomPanal += `${Math.floor(
-            (theSpecifyedTimestamp.temperature.day * 9) / 5 + 32
-          )}°F`;
+          divRowBinder += `<div class="col-2">
+              <h1 class="mini forecast-day">${convertForcastDayDisplay(
+                theSpecifyedTimestamp.time
+              )}</h1>
+               <img src="${theSpecifyedTimestamp.condition.icon_url}">
+          ${Math.floor((theSpecifyedTimestamp.temperature.day * 9) / 5 + 32)}°F
+          </div>`;
         }
       } else {
-        H2ForcastBottomPanal.innerHTML = `${Math.floor(
-          Math.floor(theSpecifyedTimestamp.temperature.day)
-        )}°C`;
+        if (index < 5) {
+          divRowBinder += `<div class="col-2">
+              <h1 class="mini forecast-day">${convertForcastDayDisplay(
+                theSpecifyedTimestamp.time
+              )}</h1>
+              <img src="${theSpecifyedTimestamp.condition.icon_url}">
+          ${Math.floor(Math.floor(theSpecifyedTimestamp.temperature.day))}°C
+          </div>`;
+        }
       }
       //console.log(timestamp.data.daily.temperature.day);
-      upcomingforcastElement.innerHTML = H2ForcastBottomPanal;
+      upcomingforcastElement.innerHTML = divRowBinder;
       console.log(upcomingforcastElement);
     }
   }
+
+  console.log(convertUpcomingForecastTemp);
+  //console.log(H2ForcastBottomPanal);
+  //console.log(convertUpcomingForecastTemp());
+  //console.log(convertUpcomingForecastTemp);
   //console.log(convertUpcomingForecastTemp());
   //console.log(convertUpcomingForecastTemp);
   function convertCeleus() {

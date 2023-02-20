@@ -92,6 +92,8 @@ theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
+  debugger;
+  console.log(response);
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
   );
@@ -139,7 +141,7 @@ function liveDataInputDisplay(response) {
 
     theForcastObject.forEach(repeatForecast);
     function repeatForecast(theForcastObject, index) {
-      debugger;
+      //debugger;
       let farinhite = document.querySelector("#Farinhite-link");
       let celeus = document.querySelector("#Celeus-link");
       if (farinhite.classList.contains("plus")) {
@@ -291,6 +293,32 @@ inputSearch.addEventListener("click", findGeoWeatherLocation);
 navigator.geolocation.getCurrentPosition(findGeoWeatherLocation);
 let apiWeather = "https://api.shecodes.io/weather/v1/current?";
 let apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
+
+// premade switch
+function premadeswitch(timestamp) {
+  debugger;
+  let farinhite = document.querySelector("#Farinhite-link");
+  let celeus = document.querySelector("#Celeus-link");
+  celeus.classList.add("plus");
+  farinhite.classList.remove("plus");
+
+  console.log(timestamp);
+  //let Tokyo = document.querySelector("#TokyoSearch");
+  axios
+    .get(
+      `https://api.shecodes.io/weather/v1/current?query=${timestamp.target.innerHTML}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
+    )
+    .then(liveDataInputDisplay);
+}
+
+let premadesearchT = document.querySelector("#TokyoSearch");
+premadesearchT.addEventListener("click", premadeswitch);
+
+let premadesearchM = document.querySelector("#MelbSearch");
+premadesearchM.addEventListener("click", premadeswitch);
+
+let premadesearchH = document.querySelector("#HonoluluSearch");
+premadesearchH.addEventListener("click", premadeswitch);
 
 //Forcast bottom pannel
 

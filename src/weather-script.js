@@ -136,7 +136,7 @@ function liveDataInputDisplay(response) {
       return writtendays[simplfiedDay];
     }
 
-    let divRowBinder = `<div class="row align-items-start">`;
+    let divRowBinder = `<div class="alt row align-items-start">`;
     let theForcastObject = response.data.daily;
 
     theForcastObject.forEach(repeatForecast);

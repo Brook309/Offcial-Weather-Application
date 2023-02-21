@@ -149,10 +149,9 @@ a:active {
 }
 
 .row {
-  position: relative;
-  left: 14px;
   justify-content: center;
   margin-bottom: 5px;
+  margin-left: -35px;
 }
 /*
 .size-for-one {

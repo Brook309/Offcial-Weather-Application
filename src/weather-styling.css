@@ -144,6 +144,7 @@ a:active {
 
 .mini {
   display: block;
+  margin-left: 2px;
   font-size: 17px;
 }
 
@@ -157,28 +158,33 @@ a:active {
 .size-for-one {
   margin-left: 10px !important;
 }*/
+.col-2 {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+}
 
-.forecast-day {
+/*.forecast-day {
   position: relative;
   left: -2px;
-}
+}*/
 
 .space-for-icon {
-  position: relative;
   left: -5px;
-  font-size: 31px;
-  margin: 15px 0px;
+  margin: 12px 0px 12px 7px;
 }
-
+/*
 .temp-bottom-panel {
   position: relative;
   left: -3px;
-}
+}*/
+/*
 .forcast-bottom-panel {
   justify-content: center;
   padding: 0px 10px;
   text-align: center;
-}
+}*/
+
 /*
 .col-1 {
   padding-left: 0px !important;
@@ -198,5 +204,10 @@ a:active {
 } */
 
 .Git-Link {
-  padding-left: 294px;
+  color: black;
+  padding-left: 18px;
+}
+
+.the-link {
+  text-decoration: underline;
 }

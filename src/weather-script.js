@@ -92,7 +92,7 @@ theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
-  debugger;
+  //debugger;
   console.log(response);
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
@@ -151,7 +151,9 @@ function liveDataInputDisplay(response) {
               <h1 class="mini forecast-day">${convertForcastDayDisplay(
                 theForcastObject.time
               )}</h1>
-                <img src="${theForcastObject.condition.icon_url}">
+                <img class="space-for-icon" src="${
+                  theForcastObject.condition.icon_url
+                }">
               <h2 class="mini temp-bottom-panel" id="theH2TempDisplay">${Math.floor(
                 (theForcastObject.temperature.day * 9) / 5 + 32
               )}°F</h2>
@@ -164,7 +166,9 @@ function liveDataInputDisplay(response) {
               <h1 class="mini forecast-day">${convertForcastDayDisplay(
                 theForcastObject.time
               )}</h1>
-                <img src="${theForcastObject.condition.icon_url}">
+                <img class="space-for-icon" src="${
+                  theForcastObject.condition.icon_url
+                }">
               <h2 class="mini temp-bottom-panel" id="theH2TempDisplay">${Math.floor(
                 theForcastObject.temperature.day
               )}°C</h2>
@@ -296,14 +300,12 @@ let apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
 
 // premade switch
 function premadeswitch(timestamp) {
-  debugger;
+  //debugger;
   let farinhite = document.querySelector("#Farinhite-link");
   let celeus = document.querySelector("#Celeus-link");
   celeus.classList.add("plus");
   farinhite.classList.remove("plus");
 
-  console.log(timestamp);
-  //let Tokyo = document.querySelector("#TokyoSearch");
   axios
     .get(
       `https://api.shecodes.io/weather/v1/current?query=${timestamp.target.innerHTML}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`

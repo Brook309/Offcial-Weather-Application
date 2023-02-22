@@ -153,7 +153,7 @@ a:active {
 .icon-weather-main-display {
   position: relative;
   top: 16px;
-  left: -1px;
+  left: 0px;
 }
 .the-precipition {
   font-size: 13px;

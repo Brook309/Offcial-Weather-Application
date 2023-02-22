@@ -74,14 +74,14 @@ body {
 ol {
   margin: 0px;
   position: relative;
-  top: -31px;
+  top: -30px;
   left: -222px;
   padding: 0px;
 }
 .the-lower-part-of-the-main-display {
   margin-left: 645px;
   position: relative;
-  top: -73px;
+  top: -48px;
   left: -246px;
   padding: 0px;
 }
@@ -142,10 +142,15 @@ a:active {
   font-weight: 400;
   font-size: 50px;
   position: relative;
-  top: -19px;
+  top: -8px;
   /*position: relative;
   top: -30px;
   left: 86px;*/
+}
+.icon-weather-main-display {
+  position: relative;
+  top: 27px;
+  left: 0px;
 }
 .the-precipition {
   font-size: 13px;
@@ -164,7 +169,7 @@ a:active {
 .the-description {
   text-align: center;
   position: relative;
-  top: -157px;
+  top: -127px;
   right: 118px;
 }
 

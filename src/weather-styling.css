@@ -7,7 +7,7 @@ body {
 .body-outline-containment {
   border-radius: 10px;
   border: 2px solid lightgrey;
-  margin: 10px;
+  margin-top: -10px;
   padding: 272px 25px 15px;
 }
 

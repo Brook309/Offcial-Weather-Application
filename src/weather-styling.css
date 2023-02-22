@@ -71,6 +71,28 @@ body {
   margin-top: -108px;
   margin-left: 3px;
 }
+ol {
+  margin: 0px;
+  position: relative;
+  top: -31px;
+  left: -222px;
+  padding: 0px;
+}
+.the-lower-part-of-the-main-display {
+  margin-left: 645px;
+  position: relative;
+  top: -73px;
+  left: -246px;
+  padding: 0px;
+}
+.alt-lower {
+  list-style-type: none;
+  text-align: left;
+}
+.alt-upper {
+  list-style-type: none;
+  text-align: right;
+}
 
 .Celeus {
   font-size: 15px;
@@ -110,35 +132,39 @@ a:active {
 
 .clock-calander {
   position: relative;
+  left: 1px;
+  /*position: relative;
   top: -6px;
-  left: 84px;
+  left: 84px;*/
 }
 
 .main-temp-panel {
   font-weight: 400;
   font-size: 50px;
   position: relative;
+  top: -19px;
+  /*position: relative;
   top: -30px;
-  left: 86px;
+  left: 86px;*/
 }
 .the-precipition {
   font-size: 13px;
-  position: relative;
+  /*position: relative;
   top: -20px;
-  left: 90px;
+  left: 90px;*/
 }
 
 .the-wind {
   font-size: 13px;
-  position: relative;
+  /*position: relative;
   top: -20px;
-  left: 87px;
+  left: 87px;*/
 }
 
 .the-description {
   text-align: center;
   position: relative;
-  top: -96px;
+  top: -157px;
   right: 118px;
 }
 

@@ -44,10 +44,13 @@ body {
 }
 
 .main-panel {
+  position: relative;
+  top: 22px;
+  left: 25px;
   text-align: center;
   border: 1px solid white;
   margin-top: 45px;
-  margin-bottom: 42px;
+  margin-bottom: 6px;
   padding: 0px 10px;
 }
 
@@ -149,7 +152,7 @@ a:active {
 }
 .icon-weather-main-display {
   position: relative;
-  top: 27px;
+  top: 16px;
   left: 0px;
 }
 .the-precipition {
@@ -169,8 +172,8 @@ a:active {
 .the-description {
   text-align: center;
   position: relative;
-  top: -127px;
-  right: 118px;
+  top: -81px;
+  right: 93px;
 }
 
 .mini {

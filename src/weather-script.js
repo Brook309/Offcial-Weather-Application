@@ -1,3 +1,25 @@
+function premadeCitySearch(timestamp) {
+  let farinhite = document.querySelector("#Farinhite-link");
+  let celeus = document.querySelector("#Celeus-link");
+  celeus.classList.add("plus");
+  farinhite.classList.remove("plus");
+
+  axios
+    .get(
+      `https://api.shecodes.io/weather/v1/current?query=${timestamp.target.innerHTML}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
+    )
+    .then(liveDataInputDisplay);
+}
+
+let premadesearchT = document.querySelector("#TokyoSearch");
+premadesearchT.addEventListener("click", premadeCitySearch);
+
+let premadesearchM = document.querySelector("#MelbSearch");
+premadesearchM.addEventListener("click", premadeCitySearch);
+
+let premadesearchH = document.querySelector("#HonoluluSearch");
+premadesearchH.addEventListener("click", premadeCitySearch);
+
 //thedate
 let theCurrentFullDate = new Date();
 
@@ -17,14 +39,6 @@ let theOldWeekDay = document.getElementById("theWeekDayDisplay");
 theOldWeekDay.innerHTML = `${theNewWeekDay}`;
 
 //the hour
-function AmPmconvert() {
-  if (theCurrentFullDate.getHours() < 12) {
-    document.querySelector("#the-am-pm").innerHTML = "AM";
-  } else {
-    document.querySelector("#the-am-pm").innerHTML = "PM";
-  }
-}
-
 function analogToDigitalConvert() {
   let DigtalHourTime = [
     "12",
@@ -69,14 +83,51 @@ function fullMinutes() {
     ).innerHTML = `0${theCurrentFullDate.getMinutes()}`;
 }
 
-AmPmconvert();
-fullMinutes();
-analogToDigitalConvert();
+function AmPmconvert() {
+  if (theCurrentFullDate.getHours() < 12) {
+    document.querySelector("#the-am-pm").innerHTML = "AM";
+  } else {
+    document.querySelector("#the-am-pm").innerHTML = "PM";
+  }
+}
 
-//Search Form with Live Data input
+analogToDigitalConvert();
+fullMinutes();
+AmPmconvert();
+
+//weather display
+navigator.geolocation.getCurrentPosition(findGeoWeatherLocation);
+let apiWeather = "https://api.shecodes.io/weather/v1/current?";
+let apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
+
+function findGeoWeatherLocation(position) {
+  let inputSearchDisplayTitle = document.querySelector("input#form1");
+
+  if (inputSearchDisplayTitle.value) {
+    let farinhite = document.querySelector("#Farinhite-link");
+    let celeus = document.querySelector("#Celeus-link");
+    celeus.classList.add("plus");
+    farinhite.classList.remove("plus");
+
+    axios
+      .get(
+        `${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}&units=metric`
+      )
+      .then(liveDataInputDisplay);
+  } else {
+    axios
+      .get(
+        `${apiWeather}lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`
+      )
+      .then(liveDataInputDisplay);
+  }
+}
+
+let inputSearch = document.querySelector("button#submit-form-button");
+inputSearch.addEventListener("click", findGeoWeatherLocation);
+
 function liveDataInputDisplay(response) {
   //debugger;
-  console.log(response);
   let mainTitleDisplay = document.querySelector(
     "h1#main-title-display-search-city"
   );
@@ -98,35 +149,29 @@ function liveDataInputDisplay(response) {
   livePrecipitionMsinDisplay.innerHTML = Math.floor(
     response.data.temperature.humidity
   );
-  console.log(response.data.coordinates.latitude);
-  console.log(response.data.coordinates.longitude);
 
   //the forcast upcoming
   axios
     .get(
-      `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
+      `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=${apiKey}&units=metric`
     )
     .then(forcastForCityLiveData);
 
   function forcastForCityLiveData(response) {
-    let upcomingforcastElement = document.querySelector("#live-forecast-js");
-    //console.log(response.data);
     function convertForcastDayDisplay(timestamp) {
       let dateForUpcomingForcast = new Date(timestamp * 1000);
-      console.log(dateForUpcomingForcast);
       let simplfiedDay = dateForUpcomingForcast.getDay();
       let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
       return writtendays[simplfiedDay];
     }
 
+    let upcomingforcastElement = document.querySelector("#live-forecast-js");
     let divRowBinder = `<div class="alt row align-items-start">`;
     let theForcastObject = response.data.daily;
 
     theForcastObject.forEach(repeatForecast);
     function repeatForecast(theForcastObject, index) {
-      //debugger;
       let farinhite = document.querySelector("#Farinhite-link");
-      let celeus = document.querySelector("#Celeus-link");
       if (farinhite.classList.contains("plus")) {
         if (index < 5) {
           divRowBinder += `
@@ -165,13 +210,13 @@ function liveDataInputDisplay(response) {
   function convertCeleus() {
     celeus.classList.add("plus");
     farinhite.classList.remove("plus");
-
-    let mainTempDisplayC = document.querySelector("#Main-display-temp");
-    mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
-
     let inputSearchDisplayTitle = document.querySelector(
       "#main-title-display-search-city"
     );
+    let mainTempDisplayC = document.querySelector("#Main-display-temp");
+
+    mainTempDisplayC.innerHTML = Math.floor(response.data.temperature.current);
+
     axios
       .get(
         `https://api.shecodes.io/weather/v1/forecast?query=${inputSearchDisplayTitle.innerHTML}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
@@ -182,80 +227,25 @@ function liveDataInputDisplay(response) {
   function convertFarinhite() {
     celeus.classList.remove("plus");
     farinhite.classList.add("plus");
-
-    let mainTempDisplayF = document.querySelector("#Main-display-temp");
-    mainTempDisplayF.innerHTML = Math.floor(
-      (response.data.temperature.current * 9) / 5 + 32
-    );
     let inputSearchDisplayTitle = document.querySelector(
       "#main-title-display-search-city"
     );
+    let mainTempDisplayF = document.querySelector("#Main-display-temp");
+
+    mainTempDisplayF.innerHTML = Math.floor(
+      (response.data.temperature.current * 9) / 5 + 32
+    );
+
     axios
       .get(
         `https://api.shecodes.io/weather/v1/forecast?query=${inputSearchDisplayTitle.innerHTML}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
       )
       .then(forcastForCityLiveData);
   }
+
   let farinhite = document.querySelector("#Farinhite-link");
   farinhite.addEventListener("click", convertFarinhite);
 
   let celeus = document.querySelector("#Celeus-link");
   celeus.addEventListener("click", convertCeleus);
 }
-
-//weather display
-function findGeoWeatherLocation(position) {
-  let inputSearchDisplayTitle = document.querySelector("input#form1");
-
-  if (inputSearchDisplayTitle.value) {
-    let farinhite = document.querySelector("#Farinhite-link");
-    let celeus = document.querySelector("#Celeus-link");
-    celeus.classList.add("plus");
-    farinhite.classList.remove("plus");
-
-    axios
-      .get(
-        `${apiWeather}query=${inputSearchDisplayTitle.value}&key=${apiKey}&units=metric`
-      )
-      .then(liveDataInputDisplay);
-  } else {
-    axios
-      .get(
-        `${apiWeather}lon=${position.coords.longitude}&lat=${position.coords.latitude}&key=${apiKey}&units=metric`
-      )
-      .then(liveDataInputDisplay);
-  }
-}
-
-let inputSearch = document.querySelector("button#submit-form-button");
-inputSearch.addEventListener("click", findGeoWeatherLocation);
-
-navigator.geolocation.getCurrentPosition(findGeoWeatherLocation);
-let apiWeather = "https://api.shecodes.io/weather/v1/current?";
-let apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
-
-// premade switch
-function premadeswitch(timestamp) {
-  //debugger;
-  let farinhite = document.querySelector("#Farinhite-link");
-  let celeus = document.querySelector("#Celeus-link");
-  celeus.classList.add("plus");
-  farinhite.classList.remove("plus");
-
-  axios
-    .get(
-      `https://api.shecodes.io/weather/v1/current?query=${timestamp.target.innerHTML}&key=84docd86f0tb9793eacd34e7e56f1b9f&units=metric`
-    )
-    .then(liveDataInputDisplay);
-}
-
-let premadesearchT = document.querySelector("#TokyoSearch");
-premadesearchT.addEventListener("click", premadeswitch);
-
-let premadesearchM = document.querySelector("#MelbSearch");
-premadesearchM.addEventListener("click", premadeswitch);
-
-let premadesearchH = document.querySelector("#HonoluluSearch");
-premadesearchH.addEventListener("click", premadeswitch);
-
-//Forcast bottom pannel

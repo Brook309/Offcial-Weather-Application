@@ -1,6 +1,21 @@
 //thedate
 let theCurrentFullDate = new Date();
 
+//the Current Days
+let writtenDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let theNewWeekDay = writtenDays[theCurrentFullDate.getDay()];
+
+let theOldWeekDay = document.getElementById("theWeekDayDisplay");
+theOldWeekDay.innerHTML = `${theNewWeekDay}`;
+
 //the hour
 function AmPmconvert() {
   if (theCurrentFullDate.getHours() < 12) {
@@ -9,7 +24,6 @@ function AmPmconvert() {
     document.querySelector("#the-am-pm").innerHTML = "PM";
   }
 }
-AmPmconvert();
 
 function digitalConvert() {
   let theOldTimeHour = document.getElementById("theTimeHourDisplay");
@@ -41,12 +55,6 @@ function digitalConvert() {
   ];
   theOldTimeHour.innerHTML = `${DigtalHourTime[theCurrentFullDate.getHours()]}`;
 }
-digitalConvert();
-
-//the OG
-/*let theNewTimeHour = theCurrentFullDate.getHours();
-let theOldTimeHour = document.getElementById("theTimeHourDisplay");
-theOldTimeHour.innerHTML = `${theNewTimeHour}`;*/
 
 //the minuntes
 function FullMin() {
@@ -58,65 +66,10 @@ function FullMin() {
       "theTimeMinDisplay"
     ).innerHTML = `0${theCurrentFullDate.getMinutes()}`;
 }
+
+AmPmconvert();
 FullMin();
-
-//the OG
-
-//let theNewTimeMin = theCurrentFullDate.getMinutes();
-/*function currentTime() {
-  let date = new Date();
-  let hh = date.getHours();
-  let mm = date.getMinutes();
-  let ss = date.getSeconds();
-  let session = "AM";
-
-  if (hh === 0) {
-    hh = 12;
-  }
-  if (hh > 12) {
-    hh = hh - 12;
-    session = "PM";
-  }
-
-  hh = hh < 10 ? "0" + hh : hh;
-  mm = mm < 10 ? "0" + mm : mm;
-  ss = ss < 10 ? "0" + ss : ss;
-
-  let time = hh + ":" + mm + ":" + ss + " " + session;
-
-  document.getElementById("clock").innerText = time;
-  let t = setTimeout(function () {
-    currentTime();
-  }, 1000);
-}
-
-currentTime();
-/*console.log(display_ct);
-function display_ct() {
-  var x = new Date();
-  var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
-  x1 = x1 + " - " + x.getHours() + ":" + x.getMinutes() + ":" + x.getSeconds();
-  document.getElementById("theTimeMinDisplay").innerHTML = x1;
-  display_ct();
-}*/
-
-//let theOldTimeMin = document.getElementById("theTimeMinDisplay");
-//theOldTimeMin.innerHTML = `${theNewTimeMin}`;
-
-//The weekDays Displays
-let writtenDays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let theNewWeekDay = writtenDays[theCurrentFullDate.getDay()];
-
-let theOldWeekDay = document.getElementById("theWeekDayDisplay");
-theOldWeekDay.innerHTML = `${theNewWeekDay}`;
+digitalConvert();
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {
@@ -207,53 +160,6 @@ function liveDataInputDisplay(response) {
     }
   }
 
-  //console.log(response.data.daily.time);
-  //console.log(response.data.daily());
-  //let divRow = `<class="row align-items-start">`;
-
-  /* function convertUpcomingForecastTemp(timestamp) {
-    console.log(timestamp);
-    let divRowBinder = `<div class="row align-items-start">`;
-    let upcomingforcastElement = document.querySelector("#live-forecast-js");
-    let farinhiteBottomTemp = document.querySelector("#Farinhite-link");
-    //let H2ForcastBottomPanal = document.querySelectorAll("h2#theH2TempDisplay");
-    let H2ForcastBottomPanal = document.querySelector("h2#theH2TempDisplay");
-    let theSpecifyedTimestamp = timestamp.data.daily;
-
-    theSpecifyedTimestamp.forEach(repeatUnitConvers);
-    function repeatUnitConvers(theSpecifyedTimestamp, index) {
-      if (farinhiteBottomTemp.classList.contains("plus")) {
-        if (index < 5) {
-          divRowBinder += `<div class="col-2">
-              <h1 class="mini forecast-day">${convertForcastDayDisplay(
-                theSpecifyedTimestamp.time
-              )}</h1>
-               <img src="${theSpecifyedTimestamp.condition.icon_url}">
-          ${Math.floor((theSpecifyedTimestamp.temperature.day * 9) / 5 + 32)}°F
-          </div>`;
-        }
-      } else {
-        if (index < 5) {
-          divRowBinder += `<div class="col-2">
-              <h1 class="mini forecast-day">${convertForcastDayDisplay(
-                theSpecifyedTimestamp.time
-              )}</h1>
-              <img src="${theSpecifyedTimestamp.condition.icon_url}">
-          ${Math.floor(Math.floor(theSpecifyedTimestamp.temperature.day))}°C
-          </div>`;
-        }
-      }
-      //console.log(timestamp.data.daily.temperature.day);
-      upcomingforcastElement.innerHTML = divRowBinder;
-    }
-  }*/
-
-  //console.log(convertUpcomingForecastTemp);
-  //console.log(H2ForcastBottomPanal);
-  //console.log(convertUpcomingForecastTemp());
-  //console.log(convertUpcomingForecastTemp);
-  //console.log(convertUpcomingForecastTemp());
-  //console.log(convertUpcomingForecastTemp);
   function convertCeleus() {
     celeus.classList.add("plus");
     farinhite.classList.remove("plus");
@@ -351,55 +257,3 @@ let premadesearchH = document.querySelector("#HonoluluSearch");
 premadesearchH.addEventListener("click", premadeswitch);
 
 //Forcast bottom pannel
-
-/* 
-function tempGeo(position) {
-  axios
-    .get(
-      `${apiWeather}lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`
-    )
-    .then(display);
-    let apiWeather = "https://api.openweathermap.org/data/2.5/weather?q=Sydney";
-
-navigator.geolocation.getCurrentPosition(tempGeo);*/
-//function liveDataInput(response) {}
-/*
-let apiWeather = "https://api.openweathermap.org/data/2.5/weather?";
-let apiKey = "2b6fdad0cbd018949c50c70f72250726";
-let city = document.querySelector("input#form1");
-console.log(city);*/
-/*axios
-  .get(`${apiWeather}q=${city}&appid=${apiKey}&units=metric`)
-  .then(liveDataInput)*/
-
-/*
-function serchInputDisplay() {
-  let inputSearchDisplayTitle = document.querySelector("input#form1");
-
-  if (inputSearchDisplayTitle.value) {
-    axios
-      .get(
-        `${apiWeather}q=${inputSearchDisplayTitle.value}&appid=${apiKey}&units=metric`
-      )
-      .then(liveDataInputDisplay);
-  } else {
-    alert("Please enter a city");
-  }
-}
-*/
-
-/*
-function serchInputDisplay() {
-  let inputSearchDisplayTitle = document.querySelector("input#form1");
-
-  if (inputSearchDisplayTitle.value) {
-    axios
-      .get(
-        `${apiWeather}q=${inputSearchDisplayTitle.value}&appid=${apiKey}&units=metric`
-      )
-      .then(liveDataInputDisplay);
-  } else {
-    alert("Please enter a city");
-  }
-}
-*/

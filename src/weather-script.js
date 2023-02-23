@@ -25,8 +25,7 @@ function AmPmconvert() {
   }
 }
 
-function digitalConvert() {
-  let theOldTimeHour = document.getElementById("theTimeHourDisplay");
+function analogToDigitalConvert() {
   let DigtalHourTime = [
     "12",
     "1",
@@ -53,11 +52,14 @@ function digitalConvert() {
     "10",
     "11",
   ];
+
+  let theOldTimeHour = document.getElementById("theTimeHourDisplay");
+
   theOldTimeHour.innerHTML = `${DigtalHourTime[theCurrentFullDate.getHours()]}`;
 }
 
 //the minuntes
-function FullMin() {
+function fullMinutes() {
   let updatetime = theCurrentFullDate.getMinutes();
   if (theCurrentFullDate.getMinutes() > 9) {
     document.getElementById("theTimeMinDisplay").innerHTML = updatetime;
@@ -68,8 +70,8 @@ function FullMin() {
 }
 
 AmPmconvert();
-FullMin();
-digitalConvert();
+fullMinutes();
+analogToDigitalConvert();
 
 //Search Form with Live Data input
 function liveDataInputDisplay(response) {

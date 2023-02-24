@@ -20,7 +20,7 @@ premadesearchM.addEventListener("click", premadeCitySearch);
 let premadesearchH = document.querySelector("#HonoluluSearch");
 premadesearchH.addEventListener("click", premadeCitySearch);
 
-//thedate
+//the Date
 let theCurrentFullDate = new Date();
 
 //the Current Days
@@ -150,7 +150,7 @@ function liveDataInputDisplay(response) {
     response.data.temperature.humidity
   );
 
-  //the forcast upcoming
+  //the forecast upcoming
   axios
     .get(
       `https://api.shecodes.io/weather/v1/forecast?lon=${response.data.coordinates.longitude}&lat=${response.data.coordinates.latitude}&key=${apiKey}&units=metric`

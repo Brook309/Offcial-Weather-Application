@@ -4,6 +4,26 @@ body {
   padding: 28px 0px 193px;
 }
 
+ol {
+  margin: 0px;
+  position: relative;
+  top: -30px;
+  left: -222px;
+  padding: 0px;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: var(--mdb-link-hover-color);
+}
+
+a:active {
+  color: var(--mdb-link-hover-color) !important;
+}
+
 .body-outline-containment {
   border-radius: 10px;
   border: 2px solid lightgrey;
@@ -26,7 +46,7 @@ body {
   max-width: 740px;
 }
 
-.premade-city-serch {
+.premade-city-search {
   margin: auto;
   display: grid;
   grid-auto-flow: column !important;
@@ -43,7 +63,7 @@ body {
   text-align: center;
 }
 
-.main-panel {
+.main-display-panel {
   position: relative;
   top: 22px;
   left: 25px;
@@ -54,14 +74,10 @@ body {
   padding: 0px 10px;
 }
 
-.main-diplay-city {
+.main-diplay-city-title {
   position: relative;
   top: -1px;
   left: -118px;
-}
-
-.forecast-day {
-  margin: 0px 0px;
 }
 
 .icon-weather {
@@ -70,67 +86,16 @@ body {
   top: -38px;
   left: -118px;
 }
+
+.main-display-weather-icon {
+  position: relative;
+  top: 16px;
+  left: 0px;
+}
+
 .side-panel {
   margin-top: -108px;
   margin-left: 3px;
-}
-ol {
-  margin: 0px;
-  position: relative;
-  top: -30px;
-  left: -222px;
-  padding: 0px;
-}
-.the-lower-part-of-the-main-display {
-  margin-left: 645px;
-  position: relative;
-  top: -48px;
-  left: -246px;
-  padding: 0px;
-}
-.alt-lower {
-  list-style-type: none;
-  text-align: left;
-}
-.alt-upper {
-  list-style-type: none;
-  text-align: right;
-}
-
-.Celeus {
-  font-size: 15px;
-  position: relative;
-  top: -26px;
-  left: 0px;
-}
-
-.farinhite {
-  font-size: 15px;
-  position: relative;
-  top: -26px;
-  left: 0px;
-}
-
-.Celeus-farinhite {
-  font-size: 15px;
-  position: relative;
-  top: -27px;
-  left: 5px;
-}
-
-a {
-  color: black;
-}
-.plus {
-  color: var(--mdb-link-hover-color);
-}
-
-a:hover {
-  color: var(--mdb-link-hover-color);
-}
-
-a:active {
-  color: var(--mdb-link-hover-color) !important;
 }
 
 .clock-calander {
@@ -150,11 +115,45 @@ a:active {
   top: -30px;
   left: 86px;*/
 }
-.icon-weather-main-display {
+
+.alt-upper {
+  list-style-type: none;
+  text-align: right;
+}
+
+.Celeus {
+  font-size: 15px;
   position: relative;
-  top: 16px;
+  top: -26px;
   left: 0px;
 }
+
+.Celeus-farinhite-line-breaker {
+  font-size: 15px;
+  position: relative;
+  top: -27px;
+  left: 5px;
+}
+
+.farinhite {
+  font-size: 15px;
+  position: relative;
+  top: -26px;
+  left: 0px;
+}
+
+.plus {
+  color: var(--mdb-link-hover-color);
+}
+
+.the-lower-part-of-the-main-display-panel {
+  margin-left: 645px;
+  position: relative;
+  top: -48px;
+  left: -246px;
+  padding: 0px;
+}
+
 .the-precipition {
   font-size: 13px;
   /*position: relative;
@@ -169,11 +168,28 @@ a:active {
   left: 87px;*/
 }
 
+.alt-lower {
+  list-style-type: none;
+  text-align: left;
+}
+
 .the-description {
   text-align: center;
   position: relative;
   top: -81px;
   right: 93px;
+}
+
+.row {
+  justify-content: center;
+  margin-bottom: 5px;
+  margin-left: -35px;
+}
+
+.col-2 {
+  display: grid;
+  text-align: center;
+  justify-content: center;
 }
 
 .mini {
@@ -182,65 +198,20 @@ a:active {
   font-size: 17px;
 }
 
-.row {
-  justify-content: center;
-  margin-bottom: 5px;
-  margin-left: -35px;
+.forecast-day {
+  margin: 0px 0px;
 }
-/*
-.size-for-one {
-  margin-left: 10px !important;
-}*/
-.col-2 {
-  display: grid;
-  text-align: center;
-  justify-content: center;
-}
-
-/*.forecast-day {
-  position: relative;
-  left: -2px;
-}*/
 
 .space-for-icon {
   left: -5px;
   margin: 12px 0px 12px 7px;
 }
-/*
-.temp-bottom-panel {
-  position: relative;
-  left: -3px;
-}*/
-/*
-.forcast-bottom-panel {
-  justify-content: center;
-  padding: 0px 10px;
-  text-align: center;
-}*/
 
-/*
-.col-1 {
-  padding-left: 0px !important;
-}
-.col-2 {
-  padding-right: 0px !important;
-}
-
-.size-middle-coloum-adjust {
-  position: relative;
-  left: -11px;
-}
-
-.temp-bottom-panel {
-  font-size: 20px;
-  font-weight: 400;
-} */
-
-.Git-Link {
+.Author {
   color: black;
   padding-left: 18px;
 }
 
-.the-link {
+.the-git-link {
   text-decoration: underline;
 }

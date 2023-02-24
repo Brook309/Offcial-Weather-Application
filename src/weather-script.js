@@ -33,10 +33,10 @@ let writtenDays = [
   "Friday",
   "Saturday",
 ];
-let theNewWeekDay = writtenDays[theCurrentFullDate.getDay()];
+let theCurrentWeekDay = writtenDays[theCurrentFullDate.getDay()];
 
-let theOldWeekDay = document.getElementById("theWeekDayDisplay");
-theOldWeekDay.innerHTML = `${theNewWeekDay}`;
+let theDefaultWeekDay = document.getElementById("theWeekDayDisplay");
+theDefaultWeekDay.innerHTML = `${theCurrentWeekDay}`;
 
 //the hour
 function analogToDigitalConvert() {
@@ -67,20 +67,22 @@ function analogToDigitalConvert() {
     "11",
   ];
 
-  let theOldTimeHour = document.getElementById("theTimeHourDisplay");
+  let theDefaultTimeHour = document.getElementById("theTimeHourDisplay");
 
-  theOldTimeHour.innerHTML = `${DigtalHourTime[theCurrentFullDate.getHours()]}`;
+  theDefaultTimeHour.innerHTML = `${
+    DigtalHourTime[theCurrentFullDate.getHours()]
+  }`;
 }
 
 //the minuntes
 function fullMinutes() {
-  let updatetime = theCurrentFullDate.getMinutes();
+  let updatedTime = theCurrentFullDate.getMinutes();
+  let theDefaultMinutes = document.getElementById("theTimeMinDisplay");
   if (theCurrentFullDate.getMinutes() > 9) {
-    document.getElementById("theTimeMinDisplay").innerHTML = updatetime;
-  } else
-    document.getElementById(
-      "theTimeMinDisplay"
-    ).innerHTML = `0${theCurrentFullDate.getMinutes()}`;
+    theDefaultMinutes.innerHTML = updatedTime;
+  } else {
+    theDefaultMinutes.innerHTML = `0${theCurrentFullDate.getMinutes()}`;
+  }
 }
 
 function AmPmconvert() {
@@ -134,19 +136,19 @@ function liveDataInputDisplay(response) {
   let mainDisplayWeatherDescription = document.querySelector(
     "#main-display-weather-description"
   );
-  let theMainTemp = document.querySelector("#Main-display-temp");
+  let theMainDisplayTemp = document.querySelector("#Main-display-temp");
   let liveWindMainDisplay = document.querySelector("#the-main-wind-speed");
-  let livePrecipitionMsinDisplay = document.querySelector(
+  let livePrecipitionMainDisplay = document.querySelector(
     "#the-main-precipition"
   );
-  let changeweathericon = document.querySelector("#icon-main-display");
+  let changeWeatherIcon = document.querySelector("#icon-main-display");
 
-  changeweathericon.setAttribute("src", `${response.data.condition.icon_url}`);
+  changeWeatherIcon.setAttribute("src", `${response.data.condition.icon_url}`);
   mainDisplayWeatherDescription.innerHTML = `${response.data.condition.description}`;
   mainTitleDisplay.innerHTML = `${response.data.city}`;
-  theMainTemp.innerHTML = Math.floor(response.data.temperature.current);
+  theMainDisplayTemp.innerHTML = Math.floor(response.data.temperature.current);
   liveWindMainDisplay.innerHTML = Math.floor(response.data.wind.speed);
-  livePrecipitionMsinDisplay.innerHTML = Math.floor(
+  livePrecipitionMainDisplay.innerHTML = Math.floor(
     response.data.temperature.humidity
   );
 
@@ -161,11 +163,11 @@ function liveDataInputDisplay(response) {
     function convertForcastDayDisplay(timestamp) {
       let dateForUpcomingForcast = new Date(timestamp * 1000);
       let simplfiedDay = dateForUpcomingForcast.getDay();
-      let writtendays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
-      return writtendays[simplfiedDay];
+      let writtenDays = ["Sun", "Mon", "Tue", "Wens", "Thur", "Fri", "Sat"];
+      return writtenDays[simplfiedDay];
     }
 
-    let upcomingforcastElement = document.querySelector("#live-forecast-js");
+    let upcomingForcastElement = document.querySelector("#live-forecast-js");
     let divRowBinder = `<div class="alt row align-items-start">`;
     let theForcastObject = response.data.daily;
 
@@ -203,13 +205,14 @@ function liveDataInputDisplay(response) {
               </div>`;
         }
       }
-      upcomingforcastElement.innerHTML = divRowBinder;
+      upcomingForcastElement.innerHTML = divRowBinder;
     }
   }
 
   function convertCeleus() {
     celeus.classList.add("plus");
     farinhite.classList.remove("plus");
+
     let inputSearchDisplayTitle = document.querySelector(
       "#main-title-display-search-city"
     );
@@ -227,6 +230,7 @@ function liveDataInputDisplay(response) {
   function convertFarinhite() {
     celeus.classList.remove("plus");
     farinhite.classList.add("plus");
+
     let inputSearchDisplayTitle = document.querySelector(
       "#main-title-display-search-city"
     );

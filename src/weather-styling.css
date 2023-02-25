@@ -4,12 +4,8 @@ body {
   padding: 28px 0px 193px;
 }
 
-ol {
-  margin: 0px;
-  position: relative;
-  top: -30px;
-  left: -222px;
-  padding: 0px;
+li {
+  display: block;
 }
 
 a {
@@ -28,7 +24,7 @@ a:active {
   border-radius: 10px;
   border: 2px solid lightgrey;
   margin-top: -10px;
-  padding: 272px 25px 15px;
+  padding: 272px 25px 25px;
 }
 
 .form-outline .form-control {
@@ -96,11 +92,7 @@ a:active {
 }
 
 .clock-calander {
-  position: relative;
-  left: 1px;
-  /*position: relative;
-  top: -6px;
-  left: 84px;*/
+  margin-right: 13px;
 }
 
 .main-temp-panel {
@@ -115,7 +107,10 @@ a:active {
 
 .alt-upper {
   list-style-type: none;
-  text-align: right;
+  text-align: center;
+  position: relative;
+  top: -30px;
+  padding-left: 141px;
 }
 
 .Celeus {
@@ -143,11 +138,13 @@ a:active {
   color: var(--mdb-link-hover-color);
 }
 
+.the-upper-part-of-the-main-display-panel {
+  margin: 0px;
+  padding: 0px;
+}
+
 .the-lower-part-of-the-main-display-panel {
-  margin-left: 645px;
-  position: relative;
-  top: -48px;
-  left: -246px;
+  margin: 0px;
   padding: 0px;
 }
 
@@ -160,21 +157,22 @@ a:active {
 
 .the-wind {
   font-size: 13px;
-  /*position: relative;
-  top: -20px;
-  left: 87px;*/
+  margin-left: -5px;
 }
 
 .alt-lower {
   list-style-type: none;
-  text-align: left;
+  text-align: center;
+  position: relative;
+  top: -35px;
+  padding-left: 108px;
 }
 
 .the-description {
   text-align: center;
   position: relative;
   top: -81px;
-  right: 93px;
+  right: 118px;
 }
 
 .row {
@@ -212,3 +210,5 @@ a:active {
 .the-git-link {
   text-decoration: underline;
 }
+
+/*max-width: 941px*/

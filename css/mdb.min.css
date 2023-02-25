@@ -253,7 +253,7 @@ sub {
 }
 sup {
   top: -0.5em;
-} 
+}
 /*a {
   color: var(--mdb-link-color);
 }
@@ -622,7 +622,7 @@ progress {
   .container-md,
   .container-sm,
   .container-xl {
-    max-width: 837px;
+    max-width: 941px;
   }
 }
 @media (min-width: 1400px) {

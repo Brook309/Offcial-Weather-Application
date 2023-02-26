@@ -1,7 +1,10 @@
 body {
+  color: #011936 !important;
+  background: linear-gradient(to top, #ace0f9 0%, #fff1eb 100%);
   text-align: center;
   margin: auto;
   padding: 28px 0px 193px;
+  font-family: "Jost", sans-serif !important;
 }
 
 li {
@@ -9,7 +12,7 @@ li {
 }
 
 a {
-  color: black;
+  color: #011936;
 }
 
 a:hover {
@@ -21,8 +24,11 @@ a:active {
 }
 
 .body-outline-containment-for-application {
+  background-color: white;
   border-radius: 10px;
-  border: 2px solid lightgrey;
+  border: 0.5px solid lightcyan;
+  box-shadow: 4px 2px 52px rgb(0 0 0 / 30%);
+  /*box-shadow: 3px 40px 68px rgb(0 0 0 / 30%);*/
   margin-top: -10px;
   padding: 272px 25px 25px;
 }
@@ -37,6 +43,14 @@ a:active {
   width: 100% !important;
   margin-top: -241px;
   justify-content: center;
+}
+
+.btn-primary {
+  background-color: #4ac3ff !important;
+}
+
+.name-adjust {
+  cursor: pointer;
 }
 
 .premade-city-search {
@@ -61,7 +75,6 @@ a:active {
   top: 22px;
   left: 25px;
   text-align: center;
-  border: 1px solid white;
   margin-top: 45px;
   margin-bottom: 6px;
   padding: 0px 10px;

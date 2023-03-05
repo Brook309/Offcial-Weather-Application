@@ -31,16 +31,20 @@
     <div class="container">
       <div class="body-outline-containment-for-application">
         <!--search bar here-->
-        <div class="search-bar input-group">
-          <div class="form-outline">
-            <input type="search" id="form1" class="form-control" />
-            <label class="form-label" for="form1">Enter City Name</label>
+        <form>
+          <div class="search-bar input-group">
+            <div class="form-outline">
+              <input type="search" id="form1" class="form-control" />
+              <label class="form-label" for="form1">Enter City Name</label>
+            </div>
+            <button
+              type="button"
+              id="submit-form-button"
+              class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
           </div>
-          <button type="button" id="submit-form-button" class="btn btn-primary">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-
+        </form>
         <!--premade city search-->
         <div class="premade-city-search">
           <a class="city-name-one name-adjust" herf="#" id="TokyoSearch"

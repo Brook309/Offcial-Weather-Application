@@ -128,6 +128,17 @@ function findGeoWeatherLocation(position) {
 let inputSearch = document.querySelector("button#submit-form-button");
 inputSearch.addEventListener("click", findGeoWeatherLocation);
 
+let inputSearchKeyPress = document.querySelector("input#form1");
+inputSearchKeyPress.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    axios
+      .get(
+        `${apiWeather}query=${inputSearchKeyPress.value}&key=${apiKey}&units=metric`
+      )
+      .then(liveDataInputDisplay);
+  }
+});
+
 function liveDataInputDisplay(response) {
   //debugger;
   let mainTitleDisplay = document.querySelector(
